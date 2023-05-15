@@ -16,7 +16,7 @@ public class KoneksiDatabase {
    public static Connection BukaKoneksi(){
        try {
            Class.forName("com.mysql.jdbc.Driver");
-           Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/ ", "root", "");
+           Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/projectakhirpbo", "root", "");
            return cn;
        } catch (ClassNotFoundException | SQLException e) {
            JOptionPane.showMessageDialog(null, e);
