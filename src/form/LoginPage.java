@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 public class LoginPage extends javax.swing.JFrame {
 public Statement st;
 public ResultSet rs;
+public ResultSet ra;
 String sql;
 Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
 
@@ -97,14 +98,23 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         try {
+             String admn;
              st = cn.createStatement();
              sql = "SELECT * FROM user WHERE username ='"+jusername.getText()+"' AND password='"+jpassword.getText()+"'";
              rs = st.executeQuery(sql);
              if (rs.next()){
                 JOptionPane.showMessageDialog(null, "Berhasil Login");
-                Dashboard dashboard = new Dashboard();
-                dashboard.setVisible(true);
+                admn = "SELECT * FROM user WHERE roles = 'admin'";
+                ra = st.executeQuery(admn);
+                if (ra.next()){
+                DashboardAdmin dashboardadmin = new DashboardAdmin();
+                dashboardadmin.setVisible(true);
                 this.dispose();
+                }else {
+                    Dashboard dashboard = new Dashboard();
+                    dashboard.setVisible(true);
+                    this.dispose();
+                } 
              } else{
                 JOptionPane.showMessageDialog(null, "Gagal Login, Username atau Password Salah");
              }        

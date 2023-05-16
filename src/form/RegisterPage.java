@@ -98,6 +98,10 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
                  rs = st.executeQuery(cek);
                  if (rs.next()) {
                      JOptionPane.showMessageDialog(null, "Username Sudah Ada Silahkan Ganti Username");
+                 }else{
+                     sql = "INSERT INTO user (nama, username, password, roles) VALUES ('" +rnama.getText() + "','" + rpassword.getText()+ "','" + rusername.getText() +  "','" + "Pelanggan" + "')";
+                     st.executeUpdate(sql);
+                     JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
                  }
                  
              }          
