@@ -75,7 +75,7 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         getContentPane().add(jButton2);
         jButton2.setBounds(210, 660, 210, 90);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("F:\\Kuliah\\Prak PBO\\ProjectAkhirPBO\\assets\\2.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/2.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 1537, 804);

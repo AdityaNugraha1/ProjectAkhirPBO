@@ -61,7 +61,7 @@ public class LogRes extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(380, 470, 180, 75);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("F:\\Kuliah\\Prak PBO\\ProjectAkhirPBO\\assets\\1.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/1.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1537, 804);
