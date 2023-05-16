@@ -13,6 +13,8 @@ import javax.swing.JFrame;
  */
 public class LogRes extends javax.swing.JFrame {
     
+   
+    
     /**
      * Creates new form LogRes
      */
@@ -63,6 +65,15 @@ public class LogRes extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/1.png"))); // NOI18N
         jLabel1.setText("jLabel1");
+        jLabel1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLabel1AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1537, 804);
 
@@ -82,6 +93,10 @@ public class LogRes extends javax.swing.JFrame {
         registerpage.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jLabel1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel1AncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel1AncestorAdded
 
     /**
      * @param args the command line arguments
