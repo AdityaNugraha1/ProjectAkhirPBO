@@ -35,7 +35,7 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         rusername = new javax.swing.JTextField();
         rpassword = new javax.swing.JTextField();
         rnama = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        register = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -49,15 +49,15 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         getContentPane().add(rnama);
         rnama.setBounds(990, 480, 350, 60);
 
-        jButton1.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 36)); // NOI18N
-        jButton1.setText("Register");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        register.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 36)); // NOI18N
+        register.setText("Register");
+        register.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                registerActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(690, 650, 690, 90);
+        getContentPane().add(register);
+        register.setBounds(690, 650, 690, 90);
 
         jButton2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
         jButton2.setText("Kembali");
@@ -84,26 +84,27 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
         // TODO add your handling code here:
         
         try {
              st = cn.createStatement(); 
              if (rusername.getText().equals("") || rpassword.getText().equals("") || rnama.getText().equals("")) {
                  JOptionPane.showMessageDialog(null, "Data Tidak Boleh Kosong", "Validasi Data", JOptionPane.INFORMATION_MESSAGE );
-                
+                 return;    
             }
-             if (rs.next()){
-                 if (rusername.getText().equals(rs.getString("username"))) {
-                      Dashboard dashboard = new Dashboard();
-                        dashboard.setVisible(true);
-                        this.dispose();
+             if (register.getText() == "Register"){
+                 String cek = "SELECT * FROM user WHERE username = '" +rusername.getText() + "'";
+                 rs = st.executeQuery(cek);
+                 if (rs.next()) {
+                     JOptionPane.showMessageDialog(null, "Username Sudah Ada Silahkan Ganti Username");
                  }
+                 
              }          
         } catch (HeadlessException | SQLException error) {
             JOptionPane.showMessageDialog(null,error.getMessage(),"Message",JOptionPane.ERROR_MESSAGE);
         }   
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_registerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,9 +142,9 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton register;
     private javax.swing.JTextField rnama;
     private javax.swing.JTextField rpassword;
     private javax.swing.JTextField rusername;
