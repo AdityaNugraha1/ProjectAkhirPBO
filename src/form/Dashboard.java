@@ -11,7 +11,11 @@ import java.sql.*;
  * @author LEGION
  */
 public class Dashboard extends javax.swing.JFrame {
-
+    public Statement st;
+    public ResultSet rs;
+    public ResultSet ra;
+    String sql;
+    Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
     /**
      * Creates new form Dashboard
      */
@@ -84,7 +88,10 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void nama_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nama_userActionPerformed
         // TODO add your handling code here
-        
+             st = cn.createStatement();
+             sql = "SELECT nama FROM user WHERE id = id FROM user";
+             rs = st.executeQuery(sql);
+             System.out.println(rs);
     }//GEN-LAST:event_nama_userActionPerformed
 
     /**
