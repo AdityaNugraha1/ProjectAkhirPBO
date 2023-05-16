@@ -14,10 +14,9 @@ import javax.swing.JOptionPane;
  * @author LEGION
  */
 public class LoginPage extends javax.swing.JFrame {
-public Statement st;
-public ResultSet rs;
-public ResultSet ra;
-String sql;
+public Statement st, sp;
+public ResultSet rs, rp;
+String sql, plgn;
 Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
 
     /**
@@ -98,24 +97,23 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         try {
-             String admn;
-             st = cn.createStatement();
-             sql = "SELECT * FROM user WHERE username ='"+jusername.getText()+"' AND password='"+jpassword.getText()+"'";
+             st = cn.createStatement();  
+             sp = cn.createStatement(); 
+             sql = "SELECT * FROM user WHERE username ='"+jusername.getText()+"' AND password='"+jpassword.getText()+"' AND roles='admin'";
+             plgn = "SELECT * FROM user WHERE username ='"+jusername.getText()+"' AND password='"+jpassword.getText()+"' AND roles='Pelanggan'";
              rs = st.executeQuery(sql);
+             rp = sp.executeQuery(plgn);
              if (rs.next()){
-                JOptionPane.showMessageDialog(null, "Berhasil Login");
-                admn = "SELECT * FROM user WHERE roles = 'admin'";
-                ra = st.executeQuery(admn);
-                if (ra.next()){
+                JOptionPane.showMessageDialog(null, "Login Admin");
                 DashboardAdmin dashboardadmin = new DashboardAdmin();
                 dashboardadmin.setVisible(true);
                 this.dispose();
-                }else {
-                    Dashboard dashboard = new Dashboard();
-                    dashboard.setVisible(true);
-                    this.dispose();
-                } 
-             } else{
+             } else if (rp.next()) {
+                JOptionPane.showMessageDialog(null, "Berhasil Login");
+                Dashboard dashboard= new Dashboard();
+                dashboard.setVisible(true);
+                this.dispose();
+             }else{
                 JOptionPane.showMessageDialog(null, "Gagal Login, Username atau Password Salah");
              }        
         }  catch (HeadlessException | SQLException error) {
