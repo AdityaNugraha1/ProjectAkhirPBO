@@ -70,7 +70,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/6.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 1366, 768);
+        jLabel2.setBounds(0, 0, 1360, 770);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
