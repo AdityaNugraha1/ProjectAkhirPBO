@@ -88,8 +88,11 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         // TODO add your handling code here:
         
         try {
-             sql = "SELECT * FROM user WHERE username='"+rusername.getText()+"' AND password='"+rpassword.getText()+"'";
-             rs = st.executeQuery(sql);
+             st = cn.createStatement(); 
+             if (rusername.getText().equals("") || rpassword.getText().equals("") || rnama.getText().equals("")) {
+                 JOptionPane.showMessageDialog(null, "Data Tidak Boleh Kosong", "Validasi Data", JOptionPane.INFORMATION_MESSAGE );
+                
+            }
              if (rs.next()){
                  if (rusername.getText().equals(rs.getString("username"))) {
                       Dashboard dashboard = new Dashboard();

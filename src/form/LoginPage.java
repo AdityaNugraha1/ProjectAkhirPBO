@@ -97,18 +97,19 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         try {
-             sql = "SELECT * FROM user WHERE username='"+jusername.getText()+"' AND password='"+jpassword.getText()+"'";
+             st = cn.createStatement();
+             sql = "SELECT * FROM user WHERE username ='"+jusername.getText()+"' AND password='"+jpassword.getText()+"'";
              rs = st.executeQuery(sql);
              if (rs.next()){
-                 if (jusername.getText().equals(rs.getString("username"))&&jpassword.equals(rs.getString("password"))) {
-                 }
-             }          
-        } catch (HeadlessException | SQLException error) {
-            JOptionPane.showMessageDialog(null,error.getMessage(),"Message",JOptionPane.ERROR_MESSAGE);
-        }finally{
-            Dashboard dashboard = new Dashboard();
-            dashboard.setVisible(true);
-            this.dispose();
+                JOptionPane.showMessageDialog(null, "Berhasil Login");
+                Dashboard dashboard = new Dashboard();
+                dashboard.setVisible(true);
+                this.dispose();
+             } else{
+                JOptionPane.showMessageDialog(null, "Gagal Login, Username atau Password Salah");
+             }        
+        }  catch (HeadlessException | SQLException error) {
+                JOptionPane.showMessageDialog(null,error.getMessage(),"Message",JOptionPane.ERROR_MESSAGE);
         }
             
         
