@@ -7,7 +7,11 @@ package form;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -42,6 +46,12 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,25 +85,63 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         jTable1.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "No", "Id", "Nama", "Username"
+                "No", "Id", "Nama", "Username", "Roles"
             }
         ));
         jTable1.setAutoscrolls(false);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(380, 450, 930, 280);
+        jScrollPane1.setBounds(370, 420, 950, 270);
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(600, 160, 260, 37);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/6.png"))); // NOI18N
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField2);
+        jTextField2.setBounds(600, 200, 260, 37);
+        getContentPane().add(jTextField3);
+        jTextField3.setBounds(600, 250, 260, 37);
+
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField4);
+        jTextField4.setBounds(600, 290, 260, 40);
+
+        jButton5.setText("Ubah");
+        getContentPane().add(jButton5);
+        jButton5.setBounds(930, 180, 160, 50);
+
+        jButton6.setText("Delete");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton6);
+        jButton6.setBounds(930, 260, 160, 50);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/7.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 1366, 768);
+        jLabel1.setBounds(0, 0, 1377, 768);
 
         setSize(new java.awt.Dimension(1380, 805));
         setLocationRelativeTo(null);
@@ -106,6 +154,51 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        jTextField1.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString());
+        jTextField2.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString());
+        jTextField3.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 3).toString());
+        jTextField4.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 4).toString());
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        if (jTextField3.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Silahkan Pilih Data Yang Akan Dihapus");           
+        } else{
+            int jawab = JOptionPane.showConfirmDialog(null, "Data Ini Akan Dihapus, Lanjutkan?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+            if (jawab == 0 ){
+                try {
+                    st = cn.createStatement();
+                    sql = "DELETE FROM user WHERE id = '" + jTextField1.getText() + "'";
+                    st.executeUpdate(sql);
+                    JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
+                    TampilData();
+                    Bersih();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ManageUser.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    
+    private void Bersih(){
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+    }
     /**
      * @param args the command line arguments
      */
@@ -119,6 +212,7 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
             model.addColumn("Id");
             model.addColumn("Nama");
             model.addColumn("Username");
+            model.addColumn("Roles");
             
             int no = 1;
             
@@ -132,6 +226,7 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
                     rs.getString("id"),
                     rs.getString("nama"),
                     rs.getString("username"),
+                    rs.getString("roles"),
                 };
                 model.addRow(data);
                 jTable1.setModel(model);
@@ -178,8 +273,14 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
