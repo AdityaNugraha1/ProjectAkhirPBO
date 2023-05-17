@@ -79,7 +79,8 @@ public class Dashboard extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 1360, 770);
 
-        pack();
+        setSize(new java.awt.Dimension(1366, 768));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void total_transaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_total_transaksiActionPerformed

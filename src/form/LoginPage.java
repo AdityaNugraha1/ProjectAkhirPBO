@@ -24,6 +24,7 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
      */
     public LoginPage() {
         initComponents();
+        
     }
 
     /**
@@ -80,7 +81,8 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 1537, 804);
 
-        pack();
+        setSize(new java.awt.Dimension(1553, 842));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jusernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jusernameActionPerformed
