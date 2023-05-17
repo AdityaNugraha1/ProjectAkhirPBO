@@ -5,6 +5,8 @@
  */
 package form;
 import java.sql.*;
+import javax.swing.JTextField;
+import form.LoginPage;
 
 /**
  *
@@ -32,25 +34,16 @@ public class Dashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        nama_user = new javax.swing.JTextField();
         total_user = new javax.swing.JTextField();
         total_transaksi = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
-
-        nama_user.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nama_userActionPerformed(evt);
-            }
-        });
-        getContentPane().add(nama_user);
-        nama_user.setBounds(900, 40, 150, 30);
         getContentPane().add(total_user);
         total_user.setBounds(420, 210, 150, 160);
 
@@ -74,10 +67,19 @@ public class Dashboard extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(0, 210, 320, 50);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/6.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 1360, 770);
+        jLabel1.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLabel1AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(890, 60, 310, 100);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -86,13 +88,14 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_total_transaksiActionPerformed
 
-    private void nama_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nama_userActionPerformed
-        // TODO add your handling code here
-             st = cn.createStatement();
-             sql = "SELECT nama FROM user WHERE id = id FROM user";
-             rs = st.executeQuery(sql);
-             System.out.println(rs);
-    }//GEN-LAST:event_nama_userActionPerformed
+    private void jLabel1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel1AncestorAdded
+        // TODO add your handling code here:
+        LoginPage objek = new LoginPage();
+        JTextField a = objek.getJusername();
+        String user=a.getText().toString();
+        jLabel1.setText(user);
+        
+    }//GEN-LAST:event_jLabel1AncestorAdded
 
     /**
      * @param args the command line arguments
@@ -132,10 +135,9 @@ public class Dashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField nama_user;
     private javax.swing.JTextField total_transaksi;
     private javax.swing.JTextField total_user;
     // End of variables declaration//GEN-END:variables

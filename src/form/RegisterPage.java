@@ -88,7 +88,7 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         // TODO add your handling code here:
         
         try {
-             st = cn.createStatement(); 
+             st = cn.createStatement();  
              if (rusername.getText().equals("") || rpassword.getText().equals("") || rnama.getText().equals("")) {
                  JOptionPane.showMessageDialog(null, "Data Tidak Boleh Kosong", "Validasi Data", JOptionPane.INFORMATION_MESSAGE );
                  return;    

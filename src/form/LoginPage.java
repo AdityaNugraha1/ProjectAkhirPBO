@@ -7,6 +7,7 @@ package form;
 import java.awt.HeadlessException;
 import java.sql.*;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 
 /**
@@ -94,6 +95,15 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    public JTextField getJusername() {
+        return jusername;
+    }
+
+    public void setJusername(JTextField jusername) {
+        this.jusername = jusername;
+    }
+
+    
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         try {
