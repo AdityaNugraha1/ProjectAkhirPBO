@@ -5,11 +5,22 @@
  */
 package form;
 
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author LEGION
  */
 public class DashboardAdmin extends javax.swing.JFrame {
+    public Statement st;
+    public ResultSet rs;
+    String sql;
+    Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
 
     /**
      * Creates new form DashboardAdmin
@@ -42,7 +53,17 @@ public class DashboardAdmin extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
+        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel2.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLabel2AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         getContentPane().add(jLabel2);
         jLabel2.setBounds(400, 220, 190, 140);
 
@@ -58,9 +79,12 @@ public class DashboardAdmin extends javax.swing.JFrame {
         getContentPane().add(jLabel5);
         jLabel5.setBounds(850, 550, 210, 160);
 
-        jButton1.setText("jButton1");
+        jButton1.setBackground(new java.awt.Color(0, 204, 204));
+        jButton1.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(51, 51, 51));
+        jButton1.setText("Manage User");
         getContentPane().add(jButton1);
-        jButton1.setBounds(0, 170, 320, 50);
+        jButton1.setBounds(0, 170, 325, 50);
 
         jButton2.setText("jButton2");
         getContentPane().add(jButton2);
@@ -82,6 +106,24 @@ public class DashboardAdmin extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1380, 805));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel2AncestorAdded
+        // TODO add your handling code here:
+         try {
+            st = cn.createStatement();  
+            sql = "SELECT COUNT(username) AS ilham FROM user";
+            rs = st.executeQuery(sql);
+            if (rs.next()) {
+                String nama = rs.getString("ilham");
+                // Tampilkan data di JLabel
+                jLabel2.setText(nama);
+                // Lakukan tindakan lain yang Anda inginkan dengan data tersebut
+            }
+        } catch (HeadlessException | SQLException error) {
+                JOptionPane.showMessageDialog(null,error.getMessage(),"Message",JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_jLabel2AncestorAdded
 
     /**
      * @param args the command line arguments
