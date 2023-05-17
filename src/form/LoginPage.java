@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 public class LoginPage extends javax.swing.JFrame {
 public Statement st, sp;
 public ResultSet rs, rp;
-String sql, plgn;
+String sql, plgn, user;
 Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
 
     /**
@@ -97,16 +97,7 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         logres.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    public JTextField getJusername() {
-        return jusername;
-    }
-
-    public void setJusername(JTextField jusername) {
-        this.jusername = jusername;
-    }
-
-    
+  
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         try {
@@ -118,12 +109,17 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
              rp = sp.executeQuery(plgn);
              if (rs.next()){
                 JOptionPane.showMessageDialog(null, "Login Admin");
+                
                 DashboardAdmin dashboardadmin = new DashboardAdmin();
+                user = rs.getString("username");
+                dashboardadmin.jLabel6.setText(user);
                 dashboardadmin.setVisible(true);
                 this.dispose();
              } else if (rp.next()) {
                 JOptionPane.showMessageDialog(null, "Berhasil Login");
                 Dashboard dashboard= new Dashboard();
+                user = rp.getString("username");
+                dashboard.jLabel2.setText(user);
                 dashboard.setVisible(true);
                 this.dispose();
              }else{
@@ -137,6 +133,14 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }    
+    
     /**
      * @param args the command line arguments
      */

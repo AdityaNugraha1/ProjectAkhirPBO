@@ -52,7 +52,8 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -141,10 +142,22 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         getContentPane().add(jComboBox1);
         jComboBox1.setBounds(600, 290, 260, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/7.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 1366, 768);
+        jLabel2.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLabel2AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(910, 30, 180, 40);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/7.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, 0, 1390, 768);
 
         setSize(new java.awt.Dimension(1380, 805));
         setLocationRelativeTo(null);
@@ -212,6 +225,10 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
             }
         }
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jLabel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel2AncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel2AncestorAdded
 
     
     private void Bersih(){
@@ -297,7 +314,8 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;

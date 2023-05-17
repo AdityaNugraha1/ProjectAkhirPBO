@@ -61,7 +61,7 @@ public class Pesanan extends javax.swing.JFrame {
         jLabel1.setBounds(720, 380, 170, 80);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("Nama");
+        jLabel3.setText("Username");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(180, 190, 190, 80);
 
@@ -104,6 +104,7 @@ public class Pesanan extends javax.swing.JFrame {
         getContentPane().add(telepon);
         telepon.setBounds(330, 400, 270, 40);
 
+        nama.setEditable(false);
         nama.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         nama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,7 +139,7 @@ public class Pesanan extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel9.setText("BUAT PESANAN ANDA");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(520, 50, 390, 80);
+        jLabel9.setBounds(490, 50, 460, 80);
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton1.setText("PESAN");
@@ -274,7 +275,7 @@ public class Pesanan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField nama;
+    public javax.swing.JTextField nama;
     private javax.swing.JComboBox<String> paket;
     private javax.swing.JTextField telepon;
     private javax.swing.JLabel total;

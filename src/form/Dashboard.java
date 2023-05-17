@@ -38,6 +38,7 @@ public class Dashboard extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 153, 255));
@@ -71,9 +72,13 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel1.setBounds(890, 60, 310, 100);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel2.setText("SELAMAT DATANG CUSTOMER SITELA");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(270, 50, 680, 70);
+        jLabel2.setBounds(610, 50, 350, 70);
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel3.setText("SELAMAT DATANG ");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(270, 50, 350, 70);
 
         setSize(new java.awt.Dimension(1366, 768));
         setLocationRelativeTo(null);
@@ -81,16 +86,14 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void jLabel1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel1AncestorAdded
         // TODO add your handling code here:
-        LoginPage objek = new LoginPage();
-        JTextField a = objek.getJusername();
-        String user=a.getText().toString();
-        jLabel1.setText(user);
-        
+
     }//GEN-LAST:event_jLabel1AncestorAdded
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Pesanan pesan = new Pesanan();
+        String b = jLabel2.getText();
+        pesan.nama.setText(b);
         pesan.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -133,6 +136,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

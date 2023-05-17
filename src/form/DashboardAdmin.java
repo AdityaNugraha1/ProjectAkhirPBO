@@ -46,7 +46,8 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1537, 804));
@@ -103,10 +104,14 @@ public class DashboardAdmin extends javax.swing.JFrame {
         getContentPane().add(jButton4);
         jButton4.setBounds(0, 400, 320, 50);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/4.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 1366, 768);
+        jLabel6.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(900, 20, 300, 60);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/4.png"))); // NOI18N
+        jLabel7.setText("jLabel7");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(0, 0, 1366, 768);
 
         setSize(new java.awt.Dimension(1380, 805));
         setLocationRelativeTo(null);
@@ -133,6 +138,8 @@ public class DashboardAdmin extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         ManageUser manageuser = new ManageUser();
+        String a = jLabel6.getText();
+        manageuser.jLabel2.setText(a);
         manageuser.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -177,10 +184,11 @@ public class DashboardAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    public javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 }
