@@ -5,17 +5,26 @@
  */
 package form;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author LEGION
  */
 public class ManageUser extends javax.swing.JFrame {
-
+public Statement st;
+public ResultSet rs;
+String sql;
+Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
     /**
      * Creates new form ManageUser
      */
     public ManageUser() {
         initComponents();
+        TampilData();
     }
 
     /**
@@ -31,9 +40,13 @@ public class ManageUser extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        getContentPane().setLayout(null);
 
         jButton1.setBackground(new java.awt.Color(0, 204, 204));
         jButton1.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
@@ -44,39 +57,43 @@ public class ManageUser extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(0, 170, 325, 50);
 
         jButton2.setText("jButton2");
+        getContentPane().add(jButton2);
+        jButton2.setBounds(0, 250, 320, 40);
 
         jButton3.setText("jButton3");
+        getContentPane().add(jButton3);
+        jButton3.setBounds(0, 320, 320, 50);
 
         jButton4.setText("jButton4");
+        getContentPane().add(jButton4);
+        jButton4.setBounds(0, 400, 320, 50);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(1001, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(117, 117, 117)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(371, Short.MAX_VALUE))
-        );
+        jTable1.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "No", "Id", "Nama", "Username"
+            }
+        ));
+        jTable1.setAutoscrolls(false);
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(380, 450, 930, 280);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/6.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 1366, 768);
 
         setSize(new java.awt.Dimension(1380, 805));
         setLocationRelativeTo(null);
@@ -92,6 +109,38 @@ public class ManageUser extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    private void TampilData(){
+        try {
+            st = cn.createStatement();
+            rs = st.executeQuery("SELECT * FROM user");
+            
+            DefaultTableModel model = new DefaultTableModel();
+            model.addColumn("No.");
+            model.addColumn("Id");
+            model.addColumn("Nama");
+            model.addColumn("Username");
+            
+            int no = 1;
+            
+            model.getDataVector().removeAllElements();
+            model.fireTableDataChanged();
+            model.setRowCount(0);
+            
+            while (rs.next()) {
+                Object[] data = {
+                    no ++,
+                    rs.getString("id"),
+                    rs.getString("nama"),
+                    rs.getString("username"),
+                };
+                model.addRow(data);
+                jTable1.setModel(model);
+                
+            }
+        } catch (Exception e) {
+        }
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -129,5 +178,8 @@ public class ManageUser extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
