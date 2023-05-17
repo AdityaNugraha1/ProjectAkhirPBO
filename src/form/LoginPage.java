@@ -112,7 +112,7 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         try {
              st = cn.createStatement();  
              sp = cn.createStatement(); 
-             sql = "SELECT * FROM user WHERE username ='"+jusername.getText()+"' AND password='"+jpassword.getText()+"' AND roles='admin'";
+             sql = "SELECT * FROM user WHERE username ='"+jusername.getText()+"' AND password='"+jpassword.getText()+"' AND roles='Admin'";
              plgn = "SELECT * FROM user WHERE username ='"+jusername.getText()+"' AND password='"+jpassword.getText()+"' AND roles='Pelanggan'";
              rs = st.executeQuery(sql);
              rp = sp.executeQuery(plgn);

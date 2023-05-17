@@ -19,9 +19,9 @@ import javax.swing.table.DefaultTableModel;
  * @author LEGION
  */
 public class ManageUser extends javax.swing.JFrame {
-public Statement st;
-public ResultSet rs;
-String sql;
+public Statement st, su;
+public ResultSet rs, ru;
+String sql, update;
 Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
     /**
      * Creates new form ManageUser
@@ -49,9 +49,9 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -104,6 +104,8 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(370, 420, 950, 270);
+
+        jTextField1.setEditable(false);
         getContentPane().add(jTextField1);
         jTextField1.setBounds(600, 160, 260, 37);
 
@@ -117,15 +119,12 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         getContentPane().add(jTextField3);
         jTextField3.setBounds(600, 250, 260, 37);
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        jButton5.setText("Ubah");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField4);
-        jTextField4.setBounds(600, 290, 260, 40);
-
-        jButton5.setText("Ubah");
         getContentPane().add(jButton5);
         jButton5.setBounds(930, 180, 160, 50);
 
@@ -138,10 +137,14 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         getContentPane().add(jButton6);
         jButton6.setBounds(930, 260, 160, 50);
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Pelanggan" }));
+        getContentPane().add(jComboBox1);
+        jComboBox1.setBounds(600, 290, 260, 40);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/7.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 1377, 768);
+        jLabel1.setBounds(0, 0, 1366, 768);
 
         setSize(new java.awt.Dimension(1380, 805));
         setLocationRelativeTo(null);
@@ -159,16 +162,12 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         jTextField1.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString());
         jTextField2.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString());
         jTextField3.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 3).toString());
-        jTextField4.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 4).toString());
+        jComboBox1.setSelectedItem(jTable1.getValueAt(jTable1.getSelectedRow(), 4).toString());
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
@@ -192,12 +191,34 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        if (jTextField3.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Silahkan Pilih Data Yang Akan Diubah");           
+        } else{
+            int jawab = JOptionPane.showConfirmDialog(null, "Data Ini Akan Diubah, Lanjutkan?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+            if (jawab == 0 ){
+                try {
+                    su = cn.createStatement();
+                    update = "UPDATE user SET nama = '" + jTextField2.getText() + "', username = '" + jTextField3.getText() + "', roles = '" + jComboBox1.getSelectedItem().toString() + "' WHERE id = '" + jTextField1.getText() + "'";
+                    su.executeUpdate(update);
+                    JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
+                    TampilData();
+                    Bersih();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ManageUser.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     
     private void Bersih(){
         jTextField1.setText("");
         jTextField2.setText("");
         jTextField3.setText("");
-        jTextField4.setText("");
+      
     }
     /**
      * @param args the command line arguments
@@ -275,12 +296,12 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
