@@ -33,11 +33,12 @@ public class LogRes extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1920, 1080));
         setPreferredSize(new java.awt.Dimension(1920, 1080));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jButton1.setBackground(java.awt.SystemColor.activeCaption);
@@ -63,21 +64,12 @@ public class LogRes extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(380, 470, 180, 75);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/1.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        jLabel1.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jLabel1AncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 1537, 804);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/1.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 1366, 768);
 
-        setSize(new java.awt.Dimension(1553, 842));
+        setSize(new java.awt.Dimension(1380, 805));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -94,10 +86,6 @@ public class LogRes extends javax.swing.JFrame {
         registerpage.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jLabel1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel1AncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel1AncestorAdded
 
     /**
      * @param args the command line arguments
@@ -138,6 +126,6 @@ public class LogRes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

@@ -41,10 +41,11 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         jpassword = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1537, 804));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jusername.addActionListener(new java.awt.event.ActionListener() {
@@ -53,9 +54,9 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
             }
         });
         getContentPane().add(jusername);
-        jusername.setBounds(1070, 370, 286, 70);
+        jusername.setBounds(910, 350, 286, 70);
         getContentPane().add(jpassword);
-        jpassword.setBounds(1070, 490, 286, 70);
+        jpassword.setBounds(910, 450, 286, 70);
 
         btnLogin.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 36)); // NOI18N
         btnLogin.setText("Login");
@@ -65,7 +66,7 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
             }
         });
         getContentPane().add(btnLogin);
-        btnLogin.setBounds(690, 660, 710, 90);
+        btnLogin.setBounds(580, 600, 710, 90);
 
         jButton2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
         jButton2.setText("Kembali");
@@ -75,14 +76,14 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(210, 660, 210, 90);
+        jButton2.setBounds(170, 610, 210, 90);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/2.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 1537, 804);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/2.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 1366, 768);
 
-        setSize(new java.awt.Dimension(1553, 842));
+        setSize(new java.awt.Dimension(1380, 805));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -175,7 +176,7 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jpassword;
     private javax.swing.JTextField jusername;
     // End of variables declaration//GEN-END:variables
