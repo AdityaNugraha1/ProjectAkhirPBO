@@ -83,6 +83,11 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(51, 51, 51));
         jButton1.setText("Manage User");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1);
         jButton1.setBounds(0, 170, 325, 50);
 
@@ -111,10 +116,10 @@ public class DashboardAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
          try {
             st = cn.createStatement();  
-            sql = "SELECT COUNT(username) AS ilham FROM user";
+            sql = "SELECT COUNT(username) AS user FROM user";
             rs = st.executeQuery(sql);
             if (rs.next()) {
-                String nama = rs.getString("ilham");
+                String nama = rs.getString("user");
                 // Tampilkan data di JLabel
                 jLabel2.setText(nama);
                 // Lakukan tindakan lain yang Anda inginkan dengan data tersebut
@@ -124,6 +129,13 @@ public class DashboardAdmin extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jLabel2AncestorAdded
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        ManageUser manageuser = new ManageUser();
+        manageuser.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
