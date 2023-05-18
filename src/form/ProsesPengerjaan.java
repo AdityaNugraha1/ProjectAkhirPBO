@@ -69,7 +69,7 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(0, 170, 325, 50);
+        jButton1.setBounds(0, 240, 325, 50);
 
         jButton2.setText("Proses Pengerjaan");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -78,15 +78,20 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(0, 250, 320, 40);
+        jButton2.setBounds(0, 320, 320, 40);
 
-        jButton3.setText("jButton3");
+        jButton3.setText("Home");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton3);
-        jButton3.setBounds(0, 320, 320, 50);
+        jButton3.setBounds(0, 170, 320, 50);
 
         jButton4.setText("jButton4");
         getContentPane().add(jButton4);
-        jButton4.setBounds(0, 400, 320, 50);
+        jButton4.setBounds(0, 380, 320, 50);
 
         jLabel6.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
         getContentPane().add(jLabel6);
@@ -277,6 +282,15 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         jTextField3.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 3).toString());
         jComboBox1.setSelectedItem(jTable1.getValueAt(jTable1.getSelectedRow(), 4).toString());
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        DashboardAdmin dashboardadmin = new DashboardAdmin();
+        String a = jLabel6.getText();
+        dashboardadmin.jLabel6.setText(a);
+        dashboardadmin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

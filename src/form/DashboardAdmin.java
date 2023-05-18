@@ -44,7 +44,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        Home = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -114,7 +114,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(0, 170, 325, 50);
+        jButton1.setBounds(0, 240, 325, 50);
 
         jButton2.setText("Proses Pengerjaan");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -123,11 +123,16 @@ public class DashboardAdmin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(0, 250, 320, 40);
+        jButton2.setBounds(0, 320, 320, 40);
 
-        jButton3.setText("jButton3");
-        getContentPane().add(jButton3);
-        jButton3.setBounds(0, 320, 320, 50);
+        Home.setText("Home");
+        Home.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Home);
+        Home.setBounds(0, 160, 320, 50);
 
         jButton4.setText("jButton4");
         getContentPane().add(jButton4);
@@ -234,6 +239,15 @@ public class DashboardAdmin extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void HomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeActionPerformed
+        // TODO add your handling code here:
+        DashboardAdmin dashboardadmin = new DashboardAdmin();
+        String a = jLabel6.getText();
+        dashboardadmin.jLabel6.setText(a);
+        dashboardadmin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_HomeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -270,9 +284,9 @@ public class DashboardAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Home;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

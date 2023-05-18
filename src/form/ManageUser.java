@@ -69,7 +69,7 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(0, 170, 325, 50);
+        jButton1.setBounds(0, 250, 325, 50);
 
         jButton2.setText("Proses Pengerjaan");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -78,11 +78,16 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(0, 250, 320, 40);
+        jButton2.setBounds(0, 330, 320, 40);
 
-        jButton3.setText("jButton3");
+        jButton3.setText("Home");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton3);
-        jButton3.setBounds(0, 320, 320, 50);
+        jButton3.setBounds(0, 180, 320, 50);
 
         jButton4.setText("jButton4");
         getContentPane().add(jButton4);
@@ -245,6 +250,15 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         prosespengerjaan.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        DashboardAdmin dashboardadmin = new DashboardAdmin();
+        String a = jLabel2.getText();
+        dashboardadmin.jLabel6.setText(a);
+        dashboardadmin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     
     private void Bersih(){
