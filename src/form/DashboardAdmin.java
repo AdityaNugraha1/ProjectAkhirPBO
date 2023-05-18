@@ -66,19 +66,43 @@ public class DashboardAdmin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(400, 220, 190, 140);
+        jLabel2.setBounds(470, 220, 190, 140);
 
-        jLabel3.setText("jLabel3");
+        jLabel3.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLabel3AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(870, 210, 180, 170);
+        jLabel3.setBounds(930, 210, 180, 170);
 
-        jLabel4.setText("jLabel4");
+        jLabel4.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLabel4AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(390, 560, 200, 150);
+        jLabel4.setBounds(470, 560, 200, 150);
 
-        jLabel5.setText("jLabel5");
+        jLabel5.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLabel5AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(850, 550, 210, 160);
+        jLabel5.setBounds(940, 550, 210, 160);
 
         jButton1.setBackground(new java.awt.Color(0, 204, 204));
         jButton1.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
@@ -92,7 +116,12 @@ public class DashboardAdmin extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(0, 170, 325, 50);
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Proses Pengerjaan");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2);
         jButton2.setBounds(0, 250, 320, 40);
 
@@ -143,6 +172,67 @@ public class DashboardAdmin extends javax.swing.JFrame {
         manageuser.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLabel3AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel3AncestorAdded
+        // TODO add your handling code here:
+        try {
+            st = cn.createStatement();  
+            sql = "SELECT SUM(total) AS total FROM customer";
+            rs = st.executeQuery(sql);
+            if (rs.next()) {
+                String total = rs.getString("total");
+                // Tampilkan data di JLabel
+                jLabel3.setText(total);
+                // Lakukan tindakan lain yang Anda inginkan dengan data tersebut
+            }
+        } catch (HeadlessException | SQLException error) {
+                JOptionPane.showMessageDialog(null,error.getMessage(),"Message",JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_jLabel3AncestorAdded
+
+    private void jLabel4AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel4AncestorAdded
+        // TODO add your handling code here:
+         try {
+            st = cn.createStatement();  
+            sql = "SELECT COUNT(status) AS statuspengerjaan FROM customer WHERE status = 'Sedang_Proses_Pengerjaan'";
+            rs = st.executeQuery(sql);
+            if (rs.next()) {
+                String statuspengerjaan = rs.getString("statuspengerjaan");
+                // Tampilkan data di JLabel
+                jLabel4.setText(statuspengerjaan);
+                // Lakukan tindakan lain yang Anda inginkan dengan data tersebut
+            }
+        } catch (HeadlessException | SQLException error) {
+                JOptionPane.showMessageDialog(null,error.getMessage(),"Message",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jLabel4AncestorAdded
+
+    private void jLabel5AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel5AncestorAdded
+        // TODO add your handling code here:
+        try {
+            st = cn.createStatement();  
+            sql = "SELECT COUNT(status) AS statusselesai FROM customer WHERE status = 'Proses_Selesai'";
+            rs = st.executeQuery(sql);
+            if (rs.next()) {
+                String statusselesai = rs.getString("statusselesai");
+                // Tampilkan data di JLabel
+                jLabel5.setText(statusselesai);
+                // Lakukan tindakan lain yang Anda inginkan dengan data tersebut
+            }
+        } catch (HeadlessException | SQLException error) {
+                JOptionPane.showMessageDialog(null,error.getMessage(),"Message",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jLabel5AncestorAdded
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        ProsesPengerjaan prosespengerjaan = new ProsesPengerjaan();
+        String a = jLabel6.getText();
+        prosespengerjaan.jLabel6.setText(a);
+        prosespengerjaan.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

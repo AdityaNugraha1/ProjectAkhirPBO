@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Bulan Mei 2023 pada 18.17
--- Versi server: 10.4.25-MariaDB
--- Versi PHP: 8.1.10
+-- Generation Time: May 18, 2023 at 05:37 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,10 +24,11 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `customer`
+-- Table structure for table `customer`
 --
 
 CREATE TABLE `customer` (
+  `id` int(11) NOT NULL,
   `nama` varchar(30) NOT NULL,
   `alamat` varchar(30) NOT NULL,
   `telepon` int(20) NOT NULL,
@@ -37,24 +38,10 @@ CREATE TABLE `customer` (
   `status` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `customer`
---
-
-INSERT INTO `customer` (`nama`, `alamat`, `telepon`, `paket`, `berat`, `total`, `status`) VALUES
-('Ihsan', 'kembang', 893456, 'Cuci+Setrika Full Express', 4, 0, ''),
-('Ihsan', 'kembang', 893456, 'Cuci+Setrika Full Express', 4, 0, ''),
-('yee', 'korea', 91234, 'Cuci+Setrika Full Express', 7, 0, ''),
-('jsu', 'jahen', 8975, 'Cuci+Setrika Reguler', 6, 0, ''),
-('kaidi', 'kiyu', 987654, 'Cuci+Setrika Reguler', 6, 45000, ''),
-('ihsan', 'kiti', 99876, 'Cuci+Setrika Reguler', 6, 45000, ''),
-('ihsan', 'kembang', 98765432, 'Cuci+Setrika Express', 4, 56000, ''),
-('Aditya', 'KulonProgo', 987654, 'Cuci+Setrika Full Express', 8, 160000, 'Sedang_Proses_Pengerjaan');
-
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -66,32 +53,56 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `nama`, `username`, `password`, `roles`) VALUES
-(1, 'Adit', 'Adit', 'Adit', 'admin'),
-(3, '1', '1', '1', 'Pelanggan');
+(1, 'Adit', 'Adit', 'Adit', 'Admin'),
+(3, '1', '1', '1', 'Admin'),
+(4, '2', '2', '2', 'Pelanggan'),
+(5, '3', '3', '3', 'Pelanggan');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `customer`
+--
+ALTER TABLE `customer`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `customer`
+--
+ALTER TABLE `customer`
+  ADD CONSTRAINT `id` FOREIGN KEY (`id`) REFERENCES `user` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

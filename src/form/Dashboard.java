@@ -39,6 +39,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 153, 255));
@@ -80,6 +81,18 @@ public class Dashboard extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(270, 50, 350, 70);
 
+        jLabel4.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLabel4AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(70, 60, 100, 50);
+
         setSize(new java.awt.Dimension(1366, 768));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -93,9 +106,16 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
         Pesanan pesan = new Pesanan();
         String b = jLabel2.getText();
+        String a =jLabel4.getText();
+        pesan.jLabel2.setText(a);
         pesan.nama.setText(b);
         pesan.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLabel4AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel4AncestorAdded
+        // TODO add your handling code here:
+        jLabel4.setVisible(false);
+    }//GEN-LAST:event_jLabel4AncestorAdded
 
     /**
      * @param args the command line arguments
@@ -138,5 +158,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }

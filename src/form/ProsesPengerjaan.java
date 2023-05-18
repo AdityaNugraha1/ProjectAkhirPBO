@@ -18,15 +18,15 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author LEGION
  */
-public class ManageUser extends javax.swing.JFrame {
+public class ProsesPengerjaan extends javax.swing.JFrame {
 public Statement st, su;
 public ResultSet rs, ru;
 String sql, update;
 Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
     /**
-     * Creates new form ManageUser
+     * Creates new form ProsesPengerjaan
      */
-    public ManageUser() {
+    public ProsesPengerjaan() {
         initComponents();
         TampilData();
     }
@@ -44,16 +44,16 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -88,6 +88,46 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         getContentPane().add(jButton4);
         jButton4.setBounds(0, 400, 320, 50);
 
+        jLabel6.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(900, 20, 300, 60);
+
+        jTextField1.setEditable(false);
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(600, 160, 260, 37);
+
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField2);
+        jTextField2.setBounds(600, 200, 260, 37);
+        getContentPane().add(jTextField3);
+        jTextField3.setBounds(600, 250, 260, 37);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Pelanggan" }));
+        getContentPane().add(jComboBox1);
+        jComboBox1.setBounds(600, 290, 260, 40);
+
+        jButton5.setText("Ubah");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5);
+        jButton5.setBounds(930, 180, 160, 50);
+
+        jButton6.setText("Delete");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton6);
+        jButton6.setBounds(930, 260, 160, 50);
+
         jTable1.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -111,58 +151,10 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(370, 420, 950, 270);
 
-        jTextField1.setEditable(false);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(600, 160, 260, 37);
-
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(600, 200, 260, 37);
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(600, 250, 260, 37);
-
-        jButton5.setText("Ubah");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton5);
-        jButton5.setBounds(930, 180, 160, 50);
-
-        jButton6.setText("Delete");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton6);
-        jButton6.setBounds(930, 260, 160, 50);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Pelanggan" }));
-        getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(600, 290, 260, 40);
-
-        jLabel2.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jLabel2AncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/7.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(910, 30, 180, 40);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/7.png"))); // NOI18N
-        jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(0, 0, 1390, 768);
+        jLabel2.setBounds(0, 0, 1366, 768);
 
         setSize(new java.awt.Dimension(1380, 805));
         setLocationRelativeTo(null);
@@ -171,50 +163,29 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         ManageUser manageuser = new ManageUser();
-        String a = jLabel2.getText();
+        String a = jLabel6.getText();
         manageuser.jLabel2.setText(a);
         manageuser.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        jTextField1.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString());
-        jTextField2.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString());
-        jTextField3.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 3).toString());
-        jComboBox1.setSelectedItem(jTable1.getValueAt(jTable1.getSelectedRow(), 4).toString());
-    }//GEN-LAST:event_jTable1MouseClicked
+        ProsesPengerjaan prosespengerjaan = new ProsesPengerjaan();
+        String a = jLabel6.getText();
+        prosespengerjaan.jLabel6.setText(a);
+        prosespengerjaan.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        if (jTextField3.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Silahkan Pilih Data Yang Akan Dihapus");           
-        } else{
-            int jawab = JOptionPane.showConfirmDialog(null, "Data Ini Akan Dihapus, Lanjutkan?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-            if (jawab == 0 ){
-                try {
-                    st = cn.createStatement();
-                    sql = "DELETE FROM user WHERE id = '" + jTextField1.getText() + "'";
-                    st.executeUpdate(sql);
-                    JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
-                    TampilData();
-                    Bersih();
-                } catch (SQLException ex) {
-                    Logger.getLogger(ManageUser.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                
-            }
-        }
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         if (jTextField3.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Silahkan Pilih Data Yang Akan Diubah");           
+            JOptionPane.showMessageDialog(this, "Silahkan Pilih Data Yang Akan Diubah");
         } else{
             int jawab = JOptionPane.showConfirmDialog(null, "Data Ini Akan Diubah, Lanjutkan?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
             if (jawab == 0 ){
@@ -228,23 +199,32 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
                 } catch (SQLException ex) {
                     Logger.getLogger(ManageUser.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+
             }
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jLabel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel2AncestorAdded
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel2AncestorAdded
+        if (jTextField3.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Silahkan Pilih Data Yang Akan Dihapus");
+        } else{
+            int jawab = JOptionPane.showConfirmDialog(null, "Data Ini Akan Dihapus, Lanjutkan?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+            if (jawab == 0 ){
+                try {
+                    st = cn.createStatement();
+                    sql = "DELETE FROM user WHERE id = '" + jTextField1.getText() + "'";
+                    st.executeUpdate(sql);
+                    JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
+                    TampilData();
+                    Bersih();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ManageUser.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        ProsesPengerjaan prosespengerjaan = new ProsesPengerjaan();
-        String a = jLabel2.getText();
-        prosespengerjaan.jLabel6.setText(a);
-        prosespengerjaan.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+            }
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     
     private void Bersih(){
@@ -253,9 +233,7 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         jTextField3.setText("");
       
     }
-    /**
-     * @param args the command line arguments
-     */
+    
     private void TampilData(){
         try {
             st = cn.createStatement();
@@ -286,10 +264,23 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
                 jTable1.setModel(model);
                 
             }
-        } catch (Exception e) {
+        } catch (SQLException ex) {
+            Logger.getLogger(ManageUser.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
+    
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        jTextField1.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString());
+        jTextField2.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString());
+        jTextField3.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 3).toString());
+        jComboBox1.setSelectedItem(jTable1.getValueAt(jTable1.getSelectedRow(), 4).toString());
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -304,20 +295,20 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ManageUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProsesPengerjaan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ManageUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProsesPengerjaan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ManageUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProsesPengerjaan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ManageUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProsesPengerjaan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ManageUser().setVisible(true);
+                new ProsesPengerjaan().setVisible(true);
             }
         });
     }
@@ -330,8 +321,8 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
-    public javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
