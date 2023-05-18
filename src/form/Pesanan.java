@@ -87,6 +87,11 @@ public class Pesanan extends javax.swing.JFrame {
 
         paket.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         paket.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cuci+Setrika Reguler", "Cuci+Setrika Express", "Cuci+Setrika Full Express" }));
+        paket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paketActionPerformed(evt);
+            }
+        });
         getContentPane().add(paket);
         paket.setBounds(890, 190, 260, 60);
 
@@ -227,6 +232,10 @@ public class Pesanan extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_beratActionPerformed
+
+    private void paketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paketActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_paketActionPerformed
 
     /**
      * @param args the command line arguments
