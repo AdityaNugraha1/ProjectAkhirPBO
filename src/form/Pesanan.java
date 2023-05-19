@@ -187,6 +187,7 @@ public class Pesanan extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String id = String.valueOf(jLabel2.getText());
         String vnama = String.valueOf(nama.getText());
         String valamat = String.valueOf(alamat.getText());
         String vberat = String.valueOf(berat.getText());
@@ -196,7 +197,7 @@ public class Pesanan extends javax.swing.JFrame {
 
         try {
             
-            String sql = "INSERT INTO customer (nama, alamat, telepon, paket, berat, total, status) VALUES ('" + vnama + "', '" + valamat + "', '" + vtelepon + "', '" + vpaket + "', '" + vberat + "', '" + vtotal + "', 'Sedang_Proses_Pengerjaan')";
+            String sql = "INSERT INTO customer (id, nama, alamat, telepon, paket, berat, total, status) VALUES ('" + id + "','" + vnama + "', '" + valamat + "', '" + vtelepon + "', '" + vpaket + "', '" + vberat + "', '" + vtotal + "', 'Sedang_Proses_Pengerjaan')";
             Statement s = cn.createStatement();
             s.executeUpdate(sql);
             JOptionPane.showMessageDialog(null,"Pesanan berhasil ditambahkan");
@@ -252,7 +253,7 @@ public class Pesanan extends javax.swing.JFrame {
 
     private void jLabel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel2AncestorAdded
         // TODO add your handling code here:
-        jLabel2.setVisible(true);
+        jLabel2.setVisible(false);
         
     }//GEN-LAST:event_jLabel2AncestorAdded
 
