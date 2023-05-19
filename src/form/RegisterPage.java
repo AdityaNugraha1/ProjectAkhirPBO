@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package form;
+import controller.usercontroller;
 import java.awt.HeadlessException;
 import java.sql.*;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 /**
  *
  * @author LEGION
@@ -16,11 +18,13 @@ public Statement st;
 public ResultSet rs;
 String sql;
 Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
+usercontroller u;
     /**
      * Creates new form RegisterPage
      */
     public RegisterPage() {
         initComponents();
+        u = new usercontroller(this);
     }
 
     /**
@@ -155,4 +159,30 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
     private javax.swing.JTextField rpassword;
     private javax.swing.JTextField rusername;
     // End of variables declaration//GEN-END:variables
+
+    public JTextField getRnama() {
+        return rnama;
+    }
+
+    public void setRnama(JTextField rnama) {
+        this.rnama = rnama;
+    }
+
+    public JTextField getRpassword() {
+        return rpassword;
+    }
+
+    public void setRpassword(JTextField rpassword) {
+        this.rpassword = rpassword;
+    }
+
+    public JTextField getRusername() {
+        return rusername;
+    }
+
+    public void setRusername(JTextField rusername) {
+        this.rusername = rusername;
+    }
+
+
 }
