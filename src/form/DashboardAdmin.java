@@ -45,7 +45,6 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         Home = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
@@ -133,10 +132,6 @@ public class DashboardAdmin extends javax.swing.JFrame {
         });
         getContentPane().add(Home);
         Home.setBounds(0, 160, 320, 50);
-
-        jButton4.setText("jButton4");
-        getContentPane().add(jButton4);
-        jButton4.setBounds(0, 400, 320, 50);
 
         jLabel6.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
         getContentPane().add(jLabel6);
@@ -287,7 +282,6 @@ public class DashboardAdmin extends javax.swing.JFrame {
     private javax.swing.JButton Home;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

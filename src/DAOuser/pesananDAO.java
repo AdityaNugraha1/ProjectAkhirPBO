@@ -21,7 +21,7 @@ public class pesananDAO implements pesananimplement{
     
     final String select = "SELECT * FROM customer";
     final String insert = "INSERT INTO customer('id_user','nama','alamat','telepon','paket','berat','total','status') VALUES('?','?','?','?','?','?','?','?')";
-    final String update = "UPDATE customer set nama=?, alamat=?, telepon=?, paket=?, berat=?, total=?, status=? WHERE id_user=?";
+    final String update = "UPDATE customer set id_user=?, nama=?, alamat=?, telepon=?, paket=?, berat=?, total=?, status=? WHERE id=?";
     final String delete = "DELETE from customer WHERE id=?";
     
     public pesananDAO(){
@@ -71,6 +71,7 @@ public class pesananDAO implements pesananimplement{
             statement.setInt(6, pesanan.getBerat());
             statement.setInt(7, pesanan.getTotal());
             statement.setString(8, pesanan.getStatus());
+            statement.setInt(9, pesanan.getId());
             statement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();

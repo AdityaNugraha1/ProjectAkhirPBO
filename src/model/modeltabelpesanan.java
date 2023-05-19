@@ -72,7 +72,7 @@ public class modeltabelpesanan extends AbstractTableModel{
             case 7:
                 return pesanan.get(row).getTotal();
             case 8:
-                return pesanan.get(row).getBerat();
+                return pesanan.get(row).getStatus();
             default:
                 return null;
         } 
