@@ -218,24 +218,12 @@ usercontroller u;
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        if (jTextField3.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Silahkan Pilih Data Yang Akan Dihapus");           
-        } else{
-            int jawab = JOptionPane.showConfirmDialog(null, "Data Ini Akan Dihapus, Lanjutkan?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-            if (jawab == 0 ){
-                try {
-                    st = cn.createStatement();
-                    sql = "DELETE FROM user WHERE id = '" + jTextField1.getText() + "'";
-                    st.executeUpdate(sql);
-                    JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
-                    TampilData();
-                    Bersih();
-                } catch (SQLException ex) {
-                    Logger.getLogger(ManageUser.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                
-            }
-        }
+        JOptionPane.showConfirmDialog(null, "Data Ini Akan Dihapus, Lanjutkan?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        u.delete();
+        JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
+        u.isitabelmanageuser();
+        Bersih();  
+      
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jLabel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel2AncestorAdded

@@ -197,7 +197,7 @@ public class Pesanan extends javax.swing.JFrame {
 
         try {
             
-            String sql = "INSERT INTO customer (id, nama, alamat, telepon, paket, berat, total, status) VALUES ('" + id + "','" + vnama + "', '" + valamat + "', '" + vtelepon + "', '" + vpaket + "', '" + vberat + "', '" + vtotal + "', 'Sedang_Proses_Pengerjaan')";
+            String sql = "INSERT INTO customer (id_user, nama, alamat, telepon, paket, berat, total, status) VALUES ('" + id + "','" + vnama + "', '" + valamat + "', '" + vtelepon + "', '" + vpaket + "', '" + vberat + "', '" + vtotal + "', 'Sedang_Proses_Pengerjaan')";
             Statement s = cn.createStatement();
             s.executeUpdate(sql);
             JOptionPane.showMessageDialog(null,"Pesanan berhasil ditambahkan");

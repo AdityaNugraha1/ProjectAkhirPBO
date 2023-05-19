@@ -56,4 +56,9 @@ public class usercontroller {
         User.setId(Integer.parseInt(manageuser.getjTextField1().getText()));
         uimplement.update(User);
     }
+    
+    public void delete(){
+        int id = Integer.parseInt(manageuser.getjTextField1().getText());
+        uimplement.delete(id);
+    }
 }

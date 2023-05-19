@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package DAOuser;
+import implemen.pesananimplement;
 import implemen.userimplement;
 import java.sql.*;
 import java.util.*;
@@ -15,30 +16,35 @@ import java.util.logging.Logger;
  *
  * @author LEGION
  */
-public class userDAO implements userimplement{
+public class pesananDAO implements pesananimplement{
     Connection connection;
     
-    final String select = "SELECT * FROM user";
-    final String insert = "INSERT INTO user('nama','username','password','roles') VALUES('?','?','?','?')";
-    final String update = "UPDATE user set nama=?, username=?, password=?, roles=? WHERE id=?";
-    final String delete = "DELETE from user WHERE id=?";
-    public userDAO(){
+    final String select = "SELECT * FROM customer";
+    final String insert = "INSERT INTO customer('id_user','nama','alamat','telepon','paket','berat','total','status') VALUES('?','?','?','?','?','?','?','?')";
+    final String update = "UPDATE customer set nama=?, alamat=?, telepon=?, paket=?, berat=?, total=?, status=? WHERE id_user=?";
+    final String delete = "DELETE from customer WHERE id=?";
+    
+    public pesananDAO(){
         connection = KoneksiDatabase.BukaKoneksi();
     }
 
     @Override
-    public void insert(user user) {
+    public void insert(pesanan pesanan) {
         PreparedStatement statement = null;
         try {
             statement = connection.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
-            statement.setString(1, user.getNama());
-            statement.setString(2, user.getUsername());
-            statement.setString(3, user.getPassword());
-            statement.setString(4, user.getRoles());
+            statement.setInt(1, pesanan.getId_user());
+            statement.setString(2, pesanan.getNama());
+            statement.setString(3, pesanan.getAlamat());
+            statement.setInt(4, pesanan.getTelepon());
+            statement.setString(5, pesanan.getPaket());
+            statement.setInt(6, pesanan.getBerat());
+            statement.setInt(7, pesanan.getTotal());
+            statement.setString(8, pesanan.getStatus());
             statement.executeUpdate();
             ResultSet rs = statement.getGeneratedKeys();
             while (rs.next()) {
-                user.setId(rs.getInt(1));
+                pesanan.setId(rs.getInt(1));
                 
             }
         } catch (SQLException ex) {
@@ -53,15 +59,18 @@ public class userDAO implements userimplement{
     }
 
     @Override
-    public void update(user user) {
+    public void update(pesanan pesanan) {
         PreparedStatement statement = null;
         try {
             statement = connection.prepareStatement(update);
-            statement.setString(1, user.getNama());
-            statement.setString(2, user.getUsername());
-            statement.setString(3, user.getPassword());
-            statement.setString(4, user.getRoles());
-            statement.setInt(5, user.getId());
+            statement.setInt(1, pesanan.getId_user());
+            statement.setString(2, pesanan.getNama());
+            statement.setString(3, pesanan.getAlamat());
+            statement.setInt(4, pesanan.getTelepon());
+            statement.setString(5, pesanan.getPaket());
+            statement.setInt(6, pesanan.getBerat());
+            statement.setInt(7, pesanan.getTotal());
+            statement.setString(8, pesanan.getStatus());
             statement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -93,26 +102,30 @@ public class userDAO implements userimplement{
     }
 
     @Override
-    public List<user> getAll() {
-        List<user> user = null;
+    public List<pesanan> getAll() {
+        List<pesanan> pesanan = null;
         try {
-            user = new ArrayList<user>();
+            pesanan = new ArrayList<pesanan>();
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(select);
             while(rs.next()){
-                user User = new user();
-                User.setId(rs.getInt("id"));
-                User.setNama(rs.getString("nama"));
-                User.setUsername(rs.getString("username"));
-                User.setPassword(rs.getString("password"));
-                User.setRoles(rs.getString("roles"));
-                user.add(User);
+                pesanan Pesanan = new pesanan();
+                Pesanan.setId(rs.getInt("id"));
+                Pesanan.setId_user(rs.getInt("id_user"));
+                Pesanan.setNama(rs.getString("nama"));
+                Pesanan.setAlamat(rs.getString("alamat"));
+                Pesanan.setTelepon(rs.getInt("telepon"));
+                Pesanan.setPaket(rs.getString("paket"));
+                Pesanan.setBerat(rs.getInt("berat"));
+                Pesanan.setTotal(rs.getInt("total"));
+                Pesanan.setStatus(rs.getString("status"));
+                pesanan.add(Pesanan);
             }
             
             
         } catch (SQLException ex) {
             Logger.getLogger(userDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return user;
+        return pesanan;
     }
 }

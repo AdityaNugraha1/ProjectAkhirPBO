@@ -12,7 +12,9 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import controller.pesanancontroller;
 
 /**
  *
@@ -23,12 +25,14 @@ public Statement st, su;
 public ResultSet rs, ru;
 String sql, update;
 Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
+pesanancontroller p;
     /**
      * Creates new form ProsesPengerjaan
      */
     public ProsesPengerjaan() {
         initComponents();
-        TampilData();
+        p = new pesanancontroller(this);
+        p.isitabelpesanan();
     }
 
     /**
@@ -136,13 +140,13 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         jTable1.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "No", "Id", "Nama", "Username", "Roles"
+
             }
         ));
         jTable1.setAutoscrolls(false);
@@ -239,7 +243,7 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
       
     }
     
-    private void TampilData(){
+    private void TampilData(){/*
         try {
             st = cn.createStatement();
             rs = st.executeQuery("SELECT * FROM user");
@@ -271,7 +275,7 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
             }
         } catch (SQLException ex) {
             Logger.getLogger(ManageUser.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }
     
     
@@ -343,4 +347,13 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
+
+    public JTable getjTable1() {
+        return jTable1;
+    }
+
+    public void setjTable1(JTable jTable1) {
+        this.jTable1 = jTable1;
+    }
+
 }
