@@ -51,6 +51,7 @@ public class Pesanan extends javax.swing.JFrame {
         total = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -87,6 +88,11 @@ public class Pesanan extends javax.swing.JFrame {
 
         paket.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         paket.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cuci+Setrika Reguler", "Cuci+Setrika Express", "Cuci+Setrika Full Express" }));
+        paket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paketActionPerformed(evt);
+            }
+        });
         getContentPane().add(paket);
         paket.setBounds(890, 190, 260, 60);
 
@@ -150,6 +156,18 @@ public class Pesanan extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1);
         jButton1.setBounds(600, 500, 240, 80);
+
+        jLabel2.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLabel2AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(250, 30, 110, 70);
 
         setSize(new java.awt.Dimension(1382, 807));
         setLocationRelativeTo(null);
@@ -228,6 +246,16 @@ public class Pesanan extends javax.swing.JFrame {
 
     }//GEN-LAST:event_beratActionPerformed
 
+    private void paketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paketActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_paketActionPerformed
+
+    private void jLabel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel2AncestorAdded
+        // TODO add your handling code here:
+        jLabel2.setVisible(true);
+        
+    }//GEN-LAST:event_jLabel2AncestorAdded
+
     /**
      * @param args the command line arguments
      */
@@ -268,6 +296,7 @@ public class Pesanan extends javax.swing.JFrame {
     private javax.swing.JTextField berat;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 public class LoginPage extends javax.swing.JFrame {
 public Statement st, sp;
 public ResultSet rs, rp;
-String sql, plgn, user;
+String sql, plgn, user, id;
 Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
 
     /**
@@ -118,8 +118,10 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
              } else if (rp.next()) {
                 JOptionPane.showMessageDialog(null, "Berhasil Login");
                 Dashboard dashboard= new Dashboard();
+                id= rp.getString("id");
                 user = rp.getString("username");
                 dashboard.jLabel2.setText(user);
+                dashboard.jLabel4.setText(id);
                 dashboard.setVisible(true);
                 this.dispose();
              }else{
@@ -182,6 +184,6 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jpassword;
-    private javax.swing.JTextField jusername;
+    public javax.swing.JTextField jusername;
     // End of variables declaration//GEN-END:variables
 }
