@@ -45,6 +45,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         Home = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
@@ -53,7 +54,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel2.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
@@ -67,6 +68,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(470, 220, 190, 140);
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jLabel3AncestorAdded(evt);
@@ -79,6 +81,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(930, 210, 180, 170);
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel4.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jLabel4AncestorAdded(evt);
@@ -91,6 +94,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         getContentPane().add(jLabel4);
         jLabel4.setBounds(470, 560, 200, 150);
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel5.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jLabel5AncestorAdded(evt);
@@ -103,37 +107,52 @@ public class DashboardAdmin extends javax.swing.JFrame {
         getContentPane().add(jLabel5);
         jLabel5.setBounds(940, 550, 210, 160);
 
-        jButton1.setBackground(new java.awt.Color(0, 204, 204));
-        jButton1.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
+        jButton1.setBackground(new java.awt.Color(51, 204, 255));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(51, 51, 51));
-        jButton1.setText("Manage User");
+        jButton1.setText("MANAGE USER");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(0, 240, 325, 50);
+        jButton1.setBounds(0, 240, 330, 50);
 
-        jButton2.setText("Proses Pengerjaan");
+        jButton2.setBackground(new java.awt.Color(51, 204, 255));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton2.setText("PROSES PENGERJAAN");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(0, 320, 320, 40);
+        jButton2.setBounds(0, 320, 330, 50);
 
-        Home.setText("Home");
+        Home.setBackground(new java.awt.Color(204, 204, 204));
+        Home.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Home.setText("HOME");
         Home.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HomeActionPerformed(evt);
             }
         });
         getContentPane().add(Home);
-        Home.setBounds(0, 160, 320, 50);
+        Home.setBounds(0, 160, 330, 50);
 
-        jLabel6.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
+        jButton3.setBackground(new java.awt.Color(255, 51, 0));
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton3.setText("LOG OUT");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(1240, 30, 120, 40);
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         getContentPane().add(jLabel6);
         jLabel6.setBounds(900, 20, 300, 60);
 
@@ -243,6 +262,13 @@ public class DashboardAdmin extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_HomeActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        LogRes logres = new LogRes();
+        logres.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -282,6 +308,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
     private javax.swing.JButton Home;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

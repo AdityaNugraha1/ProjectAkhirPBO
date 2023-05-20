@@ -48,6 +48,7 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         setResizable(false);
         getContentPane().setLayout(null);
 
+        jusername.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jusername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jusernameActionPerformed(evt);
@@ -55,11 +56,14 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         });
         getContentPane().add(jusername);
         jusername.setBounds(910, 350, 286, 70);
+
+        jpassword.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         getContentPane().add(jpassword);
         jpassword.setBounds(910, 450, 286, 70);
 
-        btnLogin.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 36)); // NOI18N
-        btnLogin.setText("Login");
+        btnLogin.setBackground(new java.awt.Color(51, 204, 255));
+        btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnLogin.setText("LOGIN");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -68,15 +72,16 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         getContentPane().add(btnLogin);
         btnLogin.setBounds(580, 600, 710, 90);
 
-        jButton2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
-        jButton2.setText("Kembali");
+        jButton2.setBackground(new java.awt.Color(51, 204, 255));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jButton2.setText("KEMBALI");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(170, 610, 210, 90);
+        jButton2.setBounds(170, 600, 210, 90);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/2.png"))); // NOI18N
         jLabel1.setText("jLabel1");

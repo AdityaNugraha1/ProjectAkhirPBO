@@ -47,15 +47,22 @@ usercontroller u;
         setResizable(false);
         setSize(new java.awt.Dimension(1537, 804));
         getContentPane().setLayout(null);
+
+        rusername.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         getContentPane().add(rusername);
         rusername.setBounds(880, 280, 320, 60);
+
+        rpassword.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         getContentPane().add(rpassword);
         rpassword.setBounds(880, 370, 320, 60);
+
+        rnama.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         getContentPane().add(rnama);
         rnama.setBounds(880, 460, 320, 60);
 
-        register.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 36)); // NOI18N
-        register.setText("Register");
+        register.setBackground(new java.awt.Color(51, 204, 255));
+        register.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        register.setText("REGISTER");
         register.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerActionPerformed(evt);
@@ -64,15 +71,16 @@ usercontroller u;
         getContentPane().add(register);
         register.setBounds(570, 600, 690, 90);
 
-        jButton2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
-        jButton2.setText("Kembali");
+        jButton2.setBackground(new java.awt.Color(51, 204, 255));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jButton2.setText("KEMBALI");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(170, 610, 220, 70);
+        jButton2.setBounds(170, 600, 230, 90);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/3.png"))); // NOI18N
         jLabel2.setText("jLabel2");

@@ -68,28 +68,32 @@ usercontroller u;
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jButton1.setBackground(new java.awt.Color(0, 204, 204));
-        jButton1.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(51, 51, 51));
-        jButton1.setText("Manage User");
+        jButton1.setText("MANAGE USER");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(0, 250, 325, 50);
+        jButton1.setBounds(0, 250, 320, 50);
 
-        jButton2.setText("Proses Pengerjaan");
+        jButton2.setBackground(new java.awt.Color(51, 204, 255));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton2.setText("PROSES PENGERJAAN");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(0, 330, 320, 40);
+        jButton2.setBounds(0, 330, 320, 50);
 
-        jButton3.setText("Home");
+        jButton3.setBackground(new java.awt.Color(51, 204, 255));
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton3.setText("HOME");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -157,6 +161,7 @@ usercontroller u;
         getContentPane().add(jComboBox1);
         jComboBox1.setBounds(600, 330, 260, 40);
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jLabel2AncestorAdded(evt);
@@ -167,7 +172,7 @@ usercontroller u;
             }
         });
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(910, 30, 180, 40);
+        jLabel2.setBounds(900, 20, 210, 70);
         getContentPane().add(jTextField4);
         jTextField4.setBounds(600, 280, 260, 40);
 

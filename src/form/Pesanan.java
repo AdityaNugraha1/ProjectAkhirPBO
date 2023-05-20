@@ -5,7 +5,7 @@
 package form;
 
 import java.awt.HeadlessException;
-import controller.pesanancontroller;
+import form.ManageUser;
 import java.sql.*;
 import javax.swing.JOptionPane;
 /**
@@ -41,9 +41,12 @@ public class Pesanan extends javax.swing.JFrame {
         paket = new javax.swing.JComboBox<>();
         telepon = new javax.swing.JTextField();
         nama = new javax.swing.JTextField();
+        alamat = new javax.swing.JTextField();
         berat = new javax.swing.JTextField();
         total = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
@@ -53,7 +56,7 @@ public class Pesanan extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setText("Kg");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(1030, 370, 190, 80);
+        jLabel7.setBounds(1010, 370, 190, 80);
 
         paket.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         paket.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cuci+Setrika Reguler", "Cuci+Setrika Express", "Cuci+Setrika Full Express" }));
@@ -63,7 +66,7 @@ public class Pesanan extends javax.swing.JFrame {
             }
         });
         getContentPane().add(paket);
-        paket.setBounds(940, 300, 180, 60);
+        paket.setBounds(920, 300, 210, 60);
 
         telepon.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         telepon.addActionListener(new java.awt.event.ActionListener() {
@@ -100,12 +103,13 @@ public class Pesanan extends javax.swing.JFrame {
             }
         });
         getContentPane().add(berat);
-        berat.setBounds(940, 390, 80, 40);
+        berat.setBounds(920, 390, 80, 40);
 
         total.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         getContentPane().add(total);
-        total.setBounds(940, 450, 150, 40);
+        total.setBounds(920, 450, 150, 40);
 
+        jButton1.setBackground(new java.awt.Color(51, 204, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton1.setText("PESAN");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +118,29 @@ public class Pesanan extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(450, 530, 470, 50);
+        jButton1.setBounds(770, 520, 360, 50);
+
+        jButton2.setBackground(new java.awt.Color(255, 51, 0));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jButton2.setText("KEMBALI");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(630, 670, 140, 50);
+
+        jButton3.setBackground(new java.awt.Color(255, 51, 0));
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jButton3.setText("RESET");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(270, 520, 360, 50);
 
         jLabel2.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
@@ -221,6 +247,23 @@ public class Pesanan extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_alamatActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Dashboard dashboard = new Dashboard();
+        dashboard.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null,"Pesanan berhasil direset");
+        alamat.setText("");
+        telepon.setText("");
+        berat.setText("");
+        total.setText("");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -260,6 +303,8 @@ public class Pesanan extends javax.swing.JFrame {
     private javax.swing.JTextField alamat;
     private javax.swing.JTextField berat;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel10;
     public javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
