@@ -36,55 +36,24 @@ public class Pesanan extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         paket = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
         telepon = new javax.swing.JTextField();
         nama = new javax.swing.JTextField();
         alamat = new javax.swing.JTextField();
         berat = new javax.swing.JTextField();
         total = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("Total");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(720, 380, 170, 80);
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("Username");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(180, 190, 190, 80);
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setText("Alamat");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(180, 280, 190, 80);
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setText("Telepon");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(180, 380, 190, 80);
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel6.setText("Pilih Paket ");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(720, 180, 190, 80);
-
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setText("Kg");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(960, 270, 190, 80);
+        jLabel7.setBounds(1030, 370, 190, 80);
 
         paket.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         paket.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cuci+Setrika Reguler", "Cuci+Setrika Express", "Cuci+Setrika Full Express" }));
@@ -94,12 +63,7 @@ public class Pesanan extends javax.swing.JFrame {
             }
         });
         getContentPane().add(paket);
-        paket.setBounds(890, 190, 260, 60);
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel8.setText("Berat");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(720, 270, 150, 80);
+        paket.setBounds(940, 300, 180, 60);
 
         telepon.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         telepon.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +72,7 @@ public class Pesanan extends javax.swing.JFrame {
             }
         });
         getContentPane().add(telepon);
-        telepon.setBounds(330, 400, 270, 40);
+        telepon.setBounds(490, 440, 180, 40);
 
         nama.setEditable(false);
         nama.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -118,7 +82,7 @@ public class Pesanan extends javax.swing.JFrame {
             }
         });
         getContentPane().add(nama);
-        nama.setBounds(330, 210, 270, 40);
+        nama.setBounds(490, 320, 180, 40);
 
         alamat.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         alamat.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +91,7 @@ public class Pesanan extends javax.swing.JFrame {
             }
         });
         getContentPane().add(alamat);
-        alamat.setBounds(330, 300, 270, 40);
+        alamat.setBounds(490, 380, 180, 40);
 
         berat.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         berat.addActionListener(new java.awt.event.ActionListener() {
@@ -136,16 +100,11 @@ public class Pesanan extends javax.swing.JFrame {
             }
         });
         getContentPane().add(berat);
-        berat.setBounds(890, 292, 60, 40);
+        berat.setBounds(940, 390, 80, 40);
 
         total.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         getContentPane().add(total);
-        total.setBounds(890, 390, 80, 40);
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel9.setText("BUAT PESANAN ANDA");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(490, 50, 460, 80);
+        total.setBounds(940, 450, 150, 40);
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton1.setText("PESAN");
@@ -155,7 +114,7 @@ public class Pesanan extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(600, 500, 240, 80);
+        jButton1.setBounds(450, 530, 470, 50);
 
         jLabel2.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
@@ -168,6 +127,11 @@ public class Pesanan extends javax.swing.JFrame {
         });
         getContentPane().add(jLabel2);
         jLabel2.setBounds(250, 30, 110, 70);
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/10.png"))); // NOI18N
+        jLabel10.setText("jLabel10");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(0, 0, 1366, 768);
 
         setSize(new java.awt.Dimension(1382, 807));
         setLocationRelativeTo(null);
@@ -296,15 +260,9 @@ public class Pesanan extends javax.swing.JFrame {
     private javax.swing.JTextField alamat;
     private javax.swing.JTextField berat;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     public javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     public javax.swing.JTextField nama;
     private javax.swing.JComboBox<String> paket;
     private javax.swing.JTextField telepon;
