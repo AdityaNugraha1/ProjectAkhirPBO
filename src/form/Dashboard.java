@@ -43,6 +43,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 153, 255));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jButton1.setText("Buat Pesanan");
@@ -52,11 +53,11 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(430, 280, 320, 50);
+        jButton1.setBounds(460, 330, 320, 50);
 
         jButton2.setText("Transaksi");
         getContentPane().add(jButton2);
-        jButton2.setBounds(430, 420, 320, 50);
+        jButton2.setBounds(460, 420, 320, 50);
 
         jLabel1.setBackground(new java.awt.Color(51, 51, 51));
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -74,26 +75,16 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(610, 50, 350, 70);
+        jLabel2.setBounds(640, 180, 350, 70);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel3.setText("SELAMAT DATANG ");
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/9.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(270, 50, 350, 70);
-
-        jLabel4.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jLabel4AncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
+        jLabel3.setBounds(0, 0, 1366, 768);
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(70, 60, 100, 50);
+        jLabel4.setBounds(210, 90, 120, 80);
 
-        setSize(new java.awt.Dimension(1366, 768));
+        setSize(new java.awt.Dimension(1380, 805));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -111,11 +102,6 @@ public class Dashboard extends javax.swing.JFrame {
         pesan.nama.setText(b);
         pesan.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jLabel4AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel4AncestorAdded
-        // TODO add your handling code here:
-        jLabel4.setVisible(false);
-    }//GEN-LAST:event_jLabel4AncestorAdded
 
     /**
      * @param args the command line arguments
