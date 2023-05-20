@@ -5,6 +5,7 @@
 package form;
 
 import java.awt.HeadlessException;
+import controller.pesanancontroller;
 import java.sql.*;
 import javax.swing.JOptionPane;
 /**
@@ -37,7 +38,6 @@ public class Pesanan extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -46,12 +46,13 @@ public class Pesanan extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         telepon = new javax.swing.JTextField();
         nama = new javax.swing.JTextField();
-        alamat = new javax.swing.JTextField();
         berat = new javax.swing.JTextField();
         total = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        alamat = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -60,11 +61,6 @@ public class Pesanan extends javax.swing.JFrame {
         jLabel1.setText("Total");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(720, 380, 170, 80);
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("Username");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(180, 190, 190, 80);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Alamat");
@@ -120,15 +116,6 @@ public class Pesanan extends javax.swing.JFrame {
         getContentPane().add(nama);
         nama.setBounds(330, 210, 270, 40);
 
-        alamat.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        alamat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alamatActionPerformed(evt);
-            }
-        });
-        getContentPane().add(alamat);
-        alamat.setBounds(330, 300, 270, 40);
-
         berat.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         berat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,6 +156,20 @@ public class Pesanan extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(250, 30, 110, 70);
 
+        alamat.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        alamat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alamatActionPerformed(evt);
+            }
+        });
+        getContentPane().add(alamat);
+        alamat.setBounds(330, 300, 270, 40);
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel10.setText("Nama");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(180, 190, 190, 80);
+
         setSize(new java.awt.Dimension(1382, 807));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -176,14 +177,6 @@ public class Pesanan extends javax.swing.JFrame {
     private void teleponActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teleponActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_teleponActionPerformed
-
-    private void namaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_namaActionPerformed
-
-    private void alamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alamatActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_alamatActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -257,6 +250,14 @@ public class Pesanan extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jLabel2AncestorAdded
 
+    private void namaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_namaActionPerformed
+
+    private void alamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alamatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_alamatActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -297,8 +298,8 @@ public class Pesanan extends javax.swing.JFrame {
     private javax.swing.JTextField berat;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     public javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
