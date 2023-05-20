@@ -19,7 +19,7 @@ public class userDAO implements userimplement{
     Connection connection;
     
     final String select = "SELECT * FROM user";
-    final String insert = "INSERT INTO user('nama','username','password','roles') VALUES('?','?','?','?')";
+    final String insert = "INSERT INTO user(nama,username,password,roles) VALUES(?,?,?,?)";
     final String update = "UPDATE user set nama=?, username=?, password=?, roles=? WHERE id=?";
     final String delete = "DELETE from user WHERE id=?";
     public userDAO(){

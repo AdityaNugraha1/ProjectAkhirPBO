@@ -107,7 +107,7 @@ usercontroller u;
                  JOptionPane.showMessageDialog(null, "Data Tidak Boleh Kosong", "Validasi Data", JOptionPane.INFORMATION_MESSAGE );
                  return;    
             }
-             if (register.getText() == "Register"){
+             if (register.getText() == "REGISTER"){
                  String cek = "SELECT * FROM user WHERE username = '" +rusername.getText() + "'";
                  rs = st.executeQuery(cek);
                  if (rs.next()) {

@@ -38,12 +38,12 @@ public class usercontroller {
         manageuser.getjTable1().setModel(mu);
     }
     
-    public void insertregister(){
+    public void insertmanageuser(){
         user User = new user();
-        User.setNama(register.getRnama().getText());
-        User.setUsername(register.getRusername().getText());
-        User.setPassword(register.getRpassword().getText());
-        User.setRoles("Pelanggan");
+        User.setNama(manageuser.getjTextField2().getText());
+        User.setUsername(manageuser.getjTextField3().getText());
+        User.setPassword(manageuser.getjTextField4().getText());
+        User.setRoles(manageuser.getjComboBox1().getSelectedItem().toString());
         uimplement.insert(User);
     }
     

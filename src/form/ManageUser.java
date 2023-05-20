@@ -62,6 +62,7 @@ usercontroller u;
         jLabel2 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -155,7 +156,7 @@ usercontroller u;
             }
         });
         getContentPane().add(jButton6);
-        jButton6.setBounds(930, 260, 160, 50);
+        jButton6.setBounds(930, 320, 160, 50);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Pelanggan" }));
         getContentPane().add(jComboBox1);
@@ -184,6 +185,15 @@ usercontroller u;
         });
         getContentPane().add(jButton7);
         jButton7.setBounds(930, 180, 160, 50);
+
+        jButton8.setText("Simpan");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton8);
+        jButton8.setBounds(930, 250, 160, 50);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/SITElA (2).png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -218,12 +228,23 @@ usercontroller u;
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showConfirmDialog(null, "Data Ini Akan Dihapus, Lanjutkan?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-        u.delete();
-        JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
-        u.isitabelmanageuser();
-        Bersih();  
-      
+        if (jTextField3.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Silahkan Pilih Data Yang Akan Dihapus");
+        } else{
+            int jawab = JOptionPane.showConfirmDialog(null, "Data Ini Akan Dihapus, Lanjutkan?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+            if (jawab == 0 ){
+                try {
+                    u.delete();
+                    JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
+                    u.isitabelmanageuser();
+                    Bersih();
+                } catch (Exception ex) {
+                    Logger.getLogger(ManageUser.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+        }
+     
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jLabel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel2AncestorAdded
@@ -273,12 +294,32 @@ usercontroller u;
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        if (jTextField3.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Silahkan Pilih Data Yang Akan Disimpan");
+        } else{
+            int jawab = JOptionPane.showConfirmDialog(null, "Data Ini Akan Disimpan, Lanjutkan?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+            if (jawab == 0 ){
+                try {
+                    u.insertmanageuser();
+                    JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
+                    u.isitabelmanageuser();
+                    Bersih();
+                } catch (Exception ex) {
+                    Logger.getLogger(ManageUser.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
+
     
     private void Bersih(){
         jTextField1.setText("");
         jTextField2.setText("");
         jTextField3.setText("");
-      
+        jTextField4.setText("");
     }
     /**
      * @param args the command line arguments
@@ -357,6 +398,7 @@ usercontroller u;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;

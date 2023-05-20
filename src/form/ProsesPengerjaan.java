@@ -235,11 +235,22 @@ pesanancontroller p;
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:/*
-        JOptionPane.showConfirmDialog(null, "Data Ini Akan Dihapus, Lanjutkan?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
-        p.delete();
-        JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
-        p.isitabelpesanan();
-        Bersih();
+        if (jTextField4.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Silahkan Pilih Data Yang Akan Dihapus");
+        } else{
+            int jawab = JOptionPane.showConfirmDialog(null, "Data Ini Akan Dihapus, Lanjutkan?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+            if (jawab == 0 ){
+                try {
+                    p.delete();
+                    JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
+                    p.isitabelpesanan();
+                    Bersih();
+                } catch (Exception ex) {
+                    Logger.getLogger(ManageUser.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     
