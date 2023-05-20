@@ -32,7 +32,6 @@ public class pesanancontroller {
     }
     public void insertpesanan(){
         pesanan Pesanan = new pesanan();
-        Pesanan.setId(Integer.parseInt(prosespengerjaan.getjTextField1().getText()));
         Pesanan.setId_user(Integer.parseInt(prosespengerjaan.getjTextField2().getText()));
         Pesanan.setNama(prosespengerjaan.getjTextField4().getText());
         Pesanan.setAlamat(prosespengerjaan.getjTextField5().getText());
@@ -40,7 +39,7 @@ public class pesanancontroller {
         Pesanan.setPaket(prosespengerjaan.getjTextField7().getText());
         Pesanan.setBerat(Integer.parseInt(prosespengerjaan.getjTextField8().getText()));
         Pesanan.setTotal(Integer.parseInt(prosespengerjaan.getjTextField9().getText()));
-        Pesanan.setStatus("Sedang_Proses_Pengerjaan");
+        Pesanan.setStatus(prosespengerjaan.getjComboBox1().getSelectedItem().toString());
         pimplement.insert(Pesanan);
     }
     public void updatepesanan(){

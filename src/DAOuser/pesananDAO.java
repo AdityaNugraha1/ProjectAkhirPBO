@@ -20,7 +20,7 @@ public class pesananDAO implements pesananimplement{
     Connection connection;
     
     final String select = "SELECT * FROM customer";
-    final String insert = "INSERT INTO customer('id_user','nama','alamat','telepon','paket','berat','total','status') VALUES('?','?','?','?','?','?','?','?')";
+    final String insert = "INSERT INTO customer(id_user,nama,alamat,telepon,paket,berat,total,status) VALUES(?,?,?,?,?,?,?,?);";
     final String update = "UPDATE customer set id_user=?, nama=?, alamat=?, telepon=?, paket=?, berat=?, total=?, status=? WHERE id=?";
     final String delete = "DELETE from customer WHERE id=?";
     

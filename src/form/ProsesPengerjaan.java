@@ -115,7 +115,6 @@ pesanancontroller p;
         getContentPane().add(jTextField1);
         jTextField1.setBounds(570, 110, 260, 30);
 
-        jTextField2.setEditable(false);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
