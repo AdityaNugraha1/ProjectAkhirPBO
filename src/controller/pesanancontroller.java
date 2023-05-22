@@ -36,7 +36,7 @@ public class pesanancontroller {
         Pesanan.setNama(prosespengerjaan.getjTextField4().getText());
         Pesanan.setAlamat(prosespengerjaan.getjTextField5().getText());
         Pesanan.setTelepon(Integer.parseInt(prosespengerjaan.getjTextField6().getText()));
-        Pesanan.setPaket(prosespengerjaan.getjTextField7().getText());
+        Pesanan.setPaket(prosespengerjaan.getjComboBox2().getSelectedItem().toString());
         Pesanan.setBerat(Integer.parseInt(prosespengerjaan.getjTextField8().getText()));
         Pesanan.setTotal(Integer.parseInt(prosespengerjaan.getjTextField9().getText()));
         Pesanan.setStatus(prosespengerjaan.getjComboBox1().getSelectedItem().toString());
@@ -49,7 +49,7 @@ public class pesanancontroller {
         Pesanan.setNama(prosespengerjaan.getjTextField4().getText());
         Pesanan.setAlamat(prosespengerjaan.getjTextField5().getText());
         Pesanan.setTelepon(Integer.parseInt(prosespengerjaan.getjTextField6().getText()));
-        Pesanan.setPaket(prosespengerjaan.getjTextField7().getText());
+        Pesanan.setPaket(prosespengerjaan.getjComboBox2().getSelectedItem().toString());
         Pesanan.setBerat(Integer.parseInt(prosespengerjaan.getjTextField8().getText()));
         Pesanan.setTotal(Integer.parseInt(prosespengerjaan.getjTextField9().getText()));
         Pesanan.setStatus(prosespengerjaan.getjComboBox1().getSelectedItem().toString());

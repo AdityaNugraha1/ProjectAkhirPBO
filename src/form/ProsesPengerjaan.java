@@ -59,10 +59,10 @@ pesanancontroller p;
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
         jTextField9 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -169,8 +169,6 @@ pesanancontroller p;
         jTextField5.setBounds(570, 200, 260, 30);
         getContentPane().add(jTextField6);
         jTextField6.setBounds(570, 230, 260, 30);
-        getContentPane().add(jTextField7);
-        jTextField7.setBounds(570, 260, 260, 30);
         getContentPane().add(jTextField8);
         jTextField8.setBounds(570, 290, 260, 30);
         getContentPane().add(jTextField9);
@@ -179,6 +177,10 @@ pesanancontroller p;
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sedang_Proses_Pengerjaan", "Proses_Selesai" }));
         getContentPane().add(jComboBox1);
         jComboBox1.setBounds(570, 350, 260, 40);
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cuci+Setrika Reguler", "Cuci+Setrika Express", "Cuci+Setrika Full Express" }));
+        getContentPane().add(jComboBox2);
+        jComboBox2.setBounds(570, 260, 260, 30);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/8.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -259,7 +261,6 @@ pesanancontroller p;
         jTextField4.setText("");
         jTextField5.setText("");
         jTextField6.setText("");
-        jTextField7.setText("");
         jTextField8.setText("");
         jTextField9.setText("");
       
@@ -308,7 +309,7 @@ pesanancontroller p;
         jTextField4.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString());
         jTextField5.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 3).toString());
         jTextField6.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 4).toString());
-        jTextField7.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 5).toString());
+        jComboBox2.setSelectedItem(jTable1.getValueAt(jTable1.getSelectedRow(), 5).toString());
         jTextField8.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 6).toString());
         jTextField9.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 7).toString());
         jComboBox1.setSelectedItem(jTable1.getValueAt(jTable1.getSelectedRow(), 8).toString());
@@ -369,6 +370,7 @@ pesanancontroller p;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel2;
     public javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
@@ -378,7 +380,6 @@ pesanancontroller p;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
@@ -431,14 +432,6 @@ pesanancontroller p;
         this.jTextField6 = jTextField6;
     }
 
-    public JTextField getjTextField7() {
-        return jTextField7;
-    }
-
-    public void setjTextField7(JTextField jTextField7) {
-        this.jTextField7 = jTextField7;
-    }
-
     public JTextField getjTextField8() {
         return jTextField8;
     }
@@ -461,6 +454,14 @@ pesanancontroller p;
 
     public void setjComboBox1(JComboBox<String> jComboBox1) {
         this.jComboBox1 = jComboBox1;
+    }
+
+    public JComboBox<String> getjComboBox2() {
+        return jComboBox2;
+    }
+
+    public void setjComboBox2(JComboBox<String> jComboBox2) {
+        this.jComboBox2 = jComboBox2;
     }
 
     
