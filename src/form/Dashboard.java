@@ -60,7 +60,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(0, 204, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton2.setText("TRANSAKSI");
+        jButton2.setText("CEK PESANAN");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -134,8 +134,10 @@ public class Dashboard extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         Transaksi transaksi = new Transaksi();
+        String b = jLabel2.getText();
         String a =jLabel4.getText();
         transaksi.jTextField1.setText(a);
+        transaksi.jLabel1.setText(b);
         transaksi.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

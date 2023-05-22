@@ -46,8 +46,8 @@ public class Pesanan extends javax.swing.JFrame {
         total = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -131,17 +131,6 @@ public class Pesanan extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(630, 670, 140, 50);
 
-        jButton3.setBackground(new java.awt.Color(255, 51, 0));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton3.setText("RESET");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3);
-        jButton3.setBounds(270, 520, 360, 50);
-
         jLabel2.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jLabel2AncestorAdded(evt);
@@ -153,6 +142,17 @@ public class Pesanan extends javax.swing.JFrame {
         });
         getContentPane().add(jLabel2);
         jLabel2.setBounds(250, 30, 110, 70);
+
+        jButton3.setBackground(new java.awt.Color(255, 51, 0));
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jButton3.setText("RESET");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(270, 520, 360, 50);
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/10.png"))); // NOI18N
         jLabel10.setText("jLabel10");
@@ -250,6 +250,10 @@ public class Pesanan extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         Dashboard dashboard = new Dashboard();
+        String a = jLabel2.getText();
+        String b = nama.getText();
+        dashboard.jLabel2.setText(a);
+        dashboard.jLabel4.setText(b);
         dashboard.setVisible(true);
         this.dispose();
         

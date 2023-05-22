@@ -39,30 +39,47 @@ transaksicontroller u;
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(null);
 
+        jTable1.setBackground(new java.awt.Color(51, 204, 255));
+        jTable1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "ID USER", "NAMA", "ALAMAT", "PAKET", "BERAT", "TOTAL", "STATUS"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(190, 230, 1030, 460);
+        jScrollPane1.setBounds(180, 290, 1030, 90);
 
+        jButton2.setBackground(new java.awt.Color(255, 51, 0));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton2.setText("KEMBALI");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(1160, 20, 190, 60);
+
+        jButton1.setBackground(new java.awt.Color(51, 204, 255));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton1.setText("Lihat Pesanan Anda");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,25 +87,41 @@ transaksicontroller u;
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(20, 150, 180, 60);
+        jButton1.setBounds(590, 180, 210, 60);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/11.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 1366, 768);
 
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(180, 80, 70, 50);
+
         jTextField1.setEditable(false);
         jTextField1.setText("jTextField1");
         getContentPane().add(jTextField1);
         jTextField1.setBounds(310, 80, 80, 40);
 
-        setBounds(0, 0, 1382, 805);
+        setSize(new java.awt.Dimension(1382, 805));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         u.caritransaksi();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Dashboard dashboard = new Dashboard();
+        dashboard.setVisible(true);
+        String a = jTextField1.getText();
+        String b = jLabel1.getText();
+        dashboard.jLabel4.setText(a);
+        dashboard.jLabel2.setText(b);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,6 +199,8 @@ transaksicontroller u;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    public javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
