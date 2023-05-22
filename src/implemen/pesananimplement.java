@@ -17,4 +17,5 @@ public interface pesananimplement {
     public void update(pesanan pesanan);
     public void delete(int id);
     public List<pesanan> getAll();
+    public List<pesanan> cariid(pesanan pesan);
 }

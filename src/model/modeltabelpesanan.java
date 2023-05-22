@@ -33,7 +33,7 @@ public class modeltabelpesanan extends AbstractTableModel{
             case 0:
                 return "ID";
             case 1:
-                return "Id_User";
+                return "Id User";
             case 2:
                 return "Nama";
             case 3:

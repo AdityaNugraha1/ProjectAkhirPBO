@@ -134,8 +134,8 @@ public class Dashboard extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         Transaksi transaksi = new Transaksi();
-        String a = jLabel2.getText();
-        transaksi.jLabel1.setText(a);
+        String a =jLabel4.getText();
+        transaksi.jTextField1.setText(a);
         transaksi.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

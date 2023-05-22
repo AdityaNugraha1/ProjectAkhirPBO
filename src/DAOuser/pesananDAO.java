@@ -23,6 +23,7 @@ public class pesananDAO implements pesananimplement{
     final String insert = "INSERT INTO customer(id_user,nama,alamat,telepon,paket,berat,total,status) VALUES(?,?,?,?,?,?,?,?);";
     final String update = "UPDATE customer set id_user=?, nama=?, alamat=?, telepon=?, paket=?, berat=?, total=?, status=? WHERE id=?";
     final String delete = "DELETE from customer WHERE id=?";
+    final String cariid = "SELECT * FROM customer WHERE id_user = ?";
     
     public pesananDAO(){
         connection = KoneksiDatabase.BukaKoneksi();
@@ -128,5 +129,35 @@ public class pesananDAO implements pesananimplement{
             Logger.getLogger(userDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return pesanan;
+    }
+
+    @Override
+    public List<pesanan> cariid(pesanan pesanan) {
+        List<pesanan> p = null;
+        try {
+            p = new ArrayList<pesanan>();
+            PreparedStatement statement = connection.prepareStatement(cariid);
+            statement.setInt(1,pesanan.getId_user());
+            ResultSet rs = statement.executeQuery();
+
+            while(rs.next()) {
+                pesanan Pesanan = new pesanan();
+                Pesanan.setId(rs.getInt("id"));
+                Pesanan.setId_user(rs.getInt("id_user"));
+                Pesanan.setNama(rs.getString("nama"));
+                Pesanan.setAlamat(rs.getString("alamat"));
+                Pesanan.setTelepon(rs.getInt("telepon"));
+                Pesanan.setPaket(rs.getString("paket"));
+                Pesanan.setBerat(rs.getInt("berat"));
+                Pesanan.setTotal(rs.getInt("total"));
+                Pesanan.setStatus(rs.getString("status"));
+                p.add(Pesanan);
+            }
+            rs.close();
+            statement.close();
+        } catch (SQLException e) {
+            Logger.getLogger(pesananDAO.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return p;
     }
 }

@@ -5,7 +5,10 @@
 package form;
 import java.sql.*;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import controller.transaksicontroller;
 /**
  *
  * @author MUHAMMAD ISHANUDDIN
@@ -15,12 +18,14 @@ public Statement st;
 public ResultSet rs;
 String sql;
 Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
+transaksicontroller u;
     /**
      * Creates new form Transaksi
      */
     public Transaksi() {
         initComponents();
-        TampilData();
+        //TampilData();
+        u = new transaksicontroller(this);
     }
 
     /**
@@ -34,9 +39,13 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        getContentPane().setLayout(null);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -51,41 +60,42 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel1.setText("jLabel1");
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(190, 230, 1030, 460);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(159, 159, 159)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(277, 277, 277)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(639, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(149, Short.MAX_VALUE))
-        );
+        jButton1.setText("Lihat Pesanan Anda");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(20, 150, 180, 60);
 
-        setBounds(0, 0, 1382, 807);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/11.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 1366, 768);
+
+        jTextField1.setEditable(false);
+        jTextField1.setText("jTextField1");
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(310, 80, 80, 40);
+
+        setBounds(0, 0, 1382, 805);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        u.caritransaksi();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     
     private void TampilData(){
-        try {
+        /*try {
             st = cn.createStatement();
             rs = st.executeQuery("SELECT * FROM customer");
              //WHERE id_user = '" + jLabel1.getText() + "'
@@ -120,7 +130,7 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
                 jTable1.setModel(model);
             }
         } catch (Exception e) {
-            }
+            }*/
     }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -155,8 +165,27 @@ Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    public javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    public JTable getjTable1() {
+        return jTable1;
+    }
+
+    public void setjTable1(JTable jTable1) {
+        this.jTable1 = jTable1;
+    }
+
+    public JTextField getjTextField1() {
+        return jTextField1;
+    }
+
+    public void setjTextField1(JTextField jTextField1) {
+        this.jTextField1 = jTextField1;
+    }
+
 }

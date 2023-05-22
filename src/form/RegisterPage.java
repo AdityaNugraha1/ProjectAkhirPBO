@@ -112,6 +112,7 @@ registercontroller u;
                     JOptionPane.showMessageDialog(null, "Username Sudah Ada Silahkan Ganti Username");
                  }else{
                     u.insertregister();
+                    bersih();
                     JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
                  }
                  
@@ -121,6 +122,11 @@ registercontroller u;
         }   
     }//GEN-LAST:event_registerActionPerformed
 
+    private void bersih(){
+        rnama.setText("");
+        rusername.setText("");
+        rpassword.setText("");
+    }
     /**
      * @param args the command line arguments
      */
