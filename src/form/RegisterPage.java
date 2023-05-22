@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package form;
-import controller.usercontroller;
+import controller.registercontroller;
 import java.awt.HeadlessException;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -18,13 +18,13 @@ public Statement st;
 public ResultSet rs;
 String sql;
 Connection cn = koneksi.KoneksiDatabase.BukaKoneksi();
-usercontroller u;
+registercontroller u;
     /**
      * Creates new form RegisterPage
      */
     public RegisterPage() {
         initComponents();
-        u = new usercontroller(this);
+        u = new registercontroller(this);
     }
 
     /**
@@ -108,14 +108,11 @@ usercontroller u;
                  return;    
             }
              if (register.getText() == "REGISTER"){
-                 String cek = "SELECT * FROM user WHERE username = '" +rusername.getText() + "'";
-                 rs = st.executeQuery(cek);
-                 if (rs.next()) {
-                     JOptionPane.showMessageDialog(null, "Username Sudah Ada Silahkan Ganti Username");
+                 if (u.ceknama()) {
+                    JOptionPane.showMessageDialog(null, "Username Sudah Ada Silahkan Ganti Username");
                  }else{
-                     sql = "INSERT INTO user (nama, username, password, roles) VALUES ('" +rnama.getText() + "','" + rpassword.getText()+ "','" + rusername.getText() +  "','" + "Pelanggan" + "')";
-                     st.executeUpdate(sql);
-                     JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
+                    u.insertregister();
+                    JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
                  }
                  
              }          

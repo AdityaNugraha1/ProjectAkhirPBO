@@ -22,6 +22,9 @@ public class userDAO implements userimplement{
     final String insert = "INSERT INTO user(nama,username,password,roles) VALUES(?,?,?,?)";
     final String update = "UPDATE user set nama=?, username=?, password=?, roles=? WHERE id=?";
     final String delete = "DELETE from user WHERE id=?";
+    final String insertregister = "INSERT INTO user(nama,username,password,roles) VALUES(?,?,?,?)";
+    final String ceknama = "SELECT * FROM user WHERE nama = ?";
+    
     public userDAO(){
         connection = KoneksiDatabase.BukaKoneksi();
     }
@@ -114,5 +117,51 @@ public class userDAO implements userimplement{
             Logger.getLogger(userDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return user;
+    }
+
+    @Override
+    public void insertregister(user user) {
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(insertregister, Statement.RETURN_GENERATED_KEYS);
+            statement.setString(1, user.getNama());
+            statement.setString(2, user.getUsername());
+            statement.setString(3, user.getPassword());
+            statement.setString(4, user.getRoles());
+            statement.executeUpdate();
+            ResultSet rs = statement.getGeneratedKeys();
+            while (rs.next()) {
+                user.setId(rs.getInt(1));
+                
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            try {
+                statement.close();
+            } catch (SQLException ex) {
+                 ex.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    public boolean ceknama(String nama) {
+        try {
+            PreparedStatement statement = connection.prepareStatement(ceknama);
+            statement.setString(1, nama);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                int count = resultSet.getInt(1);
+                if (count != 0) {
+                    return true;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+
     }
 }
