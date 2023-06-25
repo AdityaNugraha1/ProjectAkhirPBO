@@ -252,8 +252,8 @@ public class Pesanan extends javax.swing.JFrame {
         Dashboard dashboard = new Dashboard();
         String a = jLabel2.getText();
         String b = nama.getText();
-        dashboard.jLabel2.setText(a);
-        dashboard.jLabel4.setText(b);
+        dashboard.jLabel2.setText(b);
+        dashboard.jLabel4.setText(a);
         dashboard.setVisible(true);
         this.dispose();
         
