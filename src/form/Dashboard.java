@@ -39,8 +39,8 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 153, 255));
@@ -97,13 +97,13 @@ public class Dashboard extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3);
         jButton3.setBounds(1190, 20, 160, 60);
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(210, 90, 120, 80);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aset/9.png"))); // NOI18N
         jLabel3.setText("jLabel3");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 0, 1366, 768);
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(210, 90, 120, 80);
 
         setSize(new java.awt.Dimension(1380, 805));
         setLocationRelativeTo(null);
